@@ -530,3 +530,97 @@ body {
   .contact-text{font-size:1rem;}
   #rezervacija-form{gap:10px;}
 }
+/* Sekcija Utisci */
+.utisci {
+  background: url("soba6.jpg") no-repeat center center/cover;
+  position: relative;
+  padding: 160px 20px 100px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.utisci .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.utisci .section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Forma za utiske */
+.utisci-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.utisci-form input,
+.utisci-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.utisci-form input:focus,
+.utisci-form textarea:focus {
+  outline: 2px solid #ffcc00;
+}
+
+.utisci-form .btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.utisci-form .btn-whatsapp:hover {
+  background: #1eb358;
+  transform: scale(1.05);
+}
+
+/* Komentari gostiju */
+.guest-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.comment-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  text-align: left;
+}
+
+.comment-card h3 {
+  font-size: 1.1rem;
+  color: #ffcc00;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-card p {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Responsive mobilni uređaji */
+@media (max-width: 768px) {
+  .utisci .section-content { padding: 20px; }
+  .utisci h2 { font-size: 2rem; }
+  .utisci-form input, .utisci-form textarea { font-size: 0.95rem; }
+  .comment-card h3 { font-size: 1rem; }
+}
