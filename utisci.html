@@ -20,12 +20,20 @@
     .nav a:hover { color: #ffcc00; }
 
     .utisci {
-      min-height: 100vh;
-      background: url("soba6.jpg") no-repeat center center/cover;
-      position: relative; display: flex; justify-content: center; align-items: flex-start;
-      text-align: center; padding-top: 120px;
-    }
-    .utisci .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+  min-height: 100vh;
+  background: url("soba6.jpg") no-repeat center center/cover; /* čista slika */
+  display: flex;
+  flex-direction: column; /* vertikalni layout */
+  justify-content: center; /* centriraj hero */
+  align-items: center; /* centriraj sadržaj horizontalno */
+  text-align: center;
+  padding: 100px 20px; /* prostor od vrha */
+  color: white;
+}
+
+.utisci .overlay {
+  display: none; /* ukloni zamagljenje */
+}
     .section-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; }
 
     .utisci h2 { font-size: 2.5rem; margin-bottom: 15px; color: #ffcc00; }
