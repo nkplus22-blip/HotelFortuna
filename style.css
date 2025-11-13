@@ -213,3 +213,48 @@ body {
   .hero p { font-size: 0.9rem; }
   .room-img img { width: 100%; }
 }
+.onama {
+  background: url("onama.jpg") no-repeat center center/cover;
+  position: relative;
+  padding: 160px 20px 100px 20px; /* pomak zbog fiksnog headera */
+  color: #fff;
+  text-align: center;
+}
+
+.onama .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* tamna pozadina radi čitljivosti */
+}
+
+.onama .section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.onama h2 {
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+  color: #ffcc00;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+/* Scroll margin za navigaciju */
+#onama {
+  scroll-margin-top: 160px;
+}
+
+/* Responsive mobilni uređaji */
+@media (max-width: 480px) {
+  .onama h2 { font-size: 1.8rem; }
+  .about-text { font-size: 1rem; }
+}
