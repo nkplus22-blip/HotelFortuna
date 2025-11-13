@@ -213,12 +213,18 @@ body {
   .hero p { font-size: 0.9rem; }
   .room-img img { width: 100%; }
 }
+/* Sekcija O nama */
 .onama {
   background: url("onama.jpg") no-repeat center center/cover;
+  background-attachment: fixed; /* fiksira pozadinu na ekranu */
   position: relative;
-  padding: 160px 20px 100px 20px; /* pomak zbog fiksnog headera */
+  padding: 160px 20px 120px 20px; /* gornji padding zbog fiksnog headera */
   color: #fff;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .onama .overlay {
@@ -236,16 +242,19 @@ body {
 }
 
 .onama h2 {
-  font-size: 2.4rem;
-  margin-bottom: 25px;
+  font-size: 2.6rem;
+  margin-bottom: 30px;
   color: #ffcc00;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .about-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  font-size: 1.15rem;
+  line-height: 2; /* veći razmak radi lakše čitljivosti */
+  margin-bottom: 25px;
   color: #ddd;
+  font-weight: 400;
 }
 
 /* Scroll margin za navigaciju */
@@ -253,8 +262,34 @@ body {
   scroll-margin-top: 160px;
 }
 
-/* Responsive mobilni uređaji */
+/* Responsive - tablet i mobilni uređaji */
+@media (max-width: 768px) {
+  .onama h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+
 @media (max-width: 480px) {
-  .onama h2 { font-size: 1.8rem; }
-  .about-text { font-size: 1rem; }
+  .onama {
+    padding: 140px 15px 100px 15px;
+  }
+
+  .onama h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .onama {
+    background-attachment: scroll; /* fiksirana pozadina ne radi dobro na mobilnim browserima */
+  }
 }
