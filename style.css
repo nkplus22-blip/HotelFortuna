@@ -138,3 +138,66 @@ body {
     margin-top: 10px;
   }
 }
+
+/* Sekcija Sobe */
+.rooms {
+  background: #111;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.rooms h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.room-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+  margin-bottom: 40px;
+}
+
+.btn-whatsapp:hover {
+  background: #1eb358;
+  transform: scale(1.05);
+}
+
+.room-gallery-title {
+  margin-top: 40px;
+  font-size: 1.8rem;
+  color: #ffcc00;
+}
+
+.room-gallery {
+  display: flex;
+  flex-direction: column; /* slike jedna ispod druge */
+  gap: 25px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.room-img img {
+  width: 90%; /* ili max-width: 600px */
+  border: 4px solid #ffcc00;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.room-img img:hover {
+  transform: scale(1.02);
+}
