@@ -293,3 +293,98 @@ body {
     background-attachment: scroll; /* fiksirana pozadina ne radi dobro na mobilnim browserima */
   }
 }
+.lokacija {
+  background: url("lokacija1.jpg") no-repeat center center/cover;
+  background-attachment: fixed; /* fiksirana pozadina na desktopu */
+  position: relative;
+  padding: 160px 20px 120px 20px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lokacija .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.lokacija .section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.lokacija h2 {
+  font-size: 2.6rem;
+  margin-bottom: 30px;
+  color: #ffcc00;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.location-text {
+  font-size: 1.15rem;
+  line-height: 2;
+  margin-bottom: 25px;
+  color: #ddd;
+  font-weight: 400;
+}
+
+.map-link {
+  text-decoration: none;
+  width: 100%;
+  display: inline-block;
+}
+
+.map-container {
+  margin-top: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  max-width: 100%;
+  transition: transform 0.3s;
+}
+
+.map-container:hover {
+  transform: scale(1.02);
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 30px;
+}
+
+.btn-whatsapp:hover {
+  background: #1eb358;
+  transform: scale(1.05);
+}
+
+/* Scroll margin za navigaciju */
+#lokacija {
+  scroll-margin-top: 160px;
+}
+
+/* Responsive - tablet i mobilni uređaji */
+@media (max-width: 768px) {
+  .lokacija h2 { font-size: 2rem; margin-bottom: 25px; }
+  .location-text { font-size: 1rem; line-height: 1.8; }
+}
+
+@media (max-width: 480px) {
+  .lokacija { padding: 140px 15px 100px 15px; background-attachment: scroll; }
+  .lokacija h2 { font-size: 1.8rem; }
+  .location-text { font-size: 0.95rem; line-height: 1.7; }
+}
