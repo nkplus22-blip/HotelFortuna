@@ -60,6 +60,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 80px; /* Pomak zbog fiksnog headera */
 }
 
 .overlay {
@@ -142,8 +143,12 @@ body {
 /* Sekcija Sobe */
 .rooms {
   background: #111;
-  padding: 100px 20px;
+  padding: 160px 20px 100px 20px; /* Pomak gore zbog fiksnog headera */
   text-align: center;
+}
+
+#rooms {
+  scroll-margin-top: 160px; /* scroll margin za navigaciju */
 }
 
 .rooms h2 {
@@ -200,4 +205,11 @@ body {
 
 .room-img img:hover {
   transform: scale(1.02);
+}
+
+/* Responsive za mobilne uređaje */
+@media (max-width: 480px) {
+  .hero h2 { font-size: 1.8rem; }
+  .hero p { font-size: 0.9rem; }
+  .room-img img { width: 100%; }
 }
