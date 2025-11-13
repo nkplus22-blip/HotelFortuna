@@ -293,12 +293,41 @@ body {
     background-attachment: scroll; /* fiksirana pozadina ne radi dobro na mobilnim browserima */
   }
 }
+
+
+.btn-email {
+  display: inline-block;
+  background: #e53935;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-email:hover {
+  background: #c62828;
+  transform: scale(1.05);
+}
+
+/* Scroll margin za navigaciju */
+#lokacija {
+  scroll-margin-top: 160px;
+}
+
+/* Responsive mobilni uređaji */
+@media (max-width: 480px) {
+  .lokacija h2 { font-size: 1.8rem; }
+  .location-text { font-size: 1rem; }
+  .map-container iframe { height: 300px; }
+}
 /* Sekcija Kako do nas */
 .lokacija {
   background: url("lokacija1.jpg") no-repeat center center/cover;
   background-attachment: fixed; /* fiksirana pozadina */
   position: relative;
-  padding: 200px 20px 120px 20px; /* dovoljno padding-top da se tekst vidi ispod fiksnog headera */
+  padding: 200px 20px 120px 20px; /* padding-top da tekst ne bude ispod headera */
   color: #fff;
   text-align: center;
   display: flex;
@@ -310,7 +339,7 @@ body {
 .lokacija .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* tamna pozadina radi čitljivosti */
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .lokacija .section-content {
@@ -350,6 +379,7 @@ body {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .btn-whatsapp {
