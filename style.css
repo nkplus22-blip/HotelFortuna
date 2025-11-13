@@ -425,3 +425,108 @@ body {
   .location-text { font-size: 1rem; }
   .map-container iframe { height: 300px; }
 }
+.kontakt {
+  background: url("kontakt.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+  position: relative;
+  padding: 160px 20px 100px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.kontakt .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.kontakt .section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.kontakt h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.contact-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.btn-whatsapp, .btn-email {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.btn-whatsapp { background: #25d366; color: #fff; }
+.btn-whatsapp:hover { background: #1eb358; transform: scale(1.05); }
+
+.btn-email { background: #e53935; color: #fff; }
+.btn-email:hover { background: #c62828; transform: scale(1.05); }
+
+/* Forma rezervacije */
+#rezervacija-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#rezervacija-form input,
+#rezervacija-form select,
+#rezervacija-form button {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+#rezervacija-form input,
+#rezervacija-form select {
+  background: #222;
+  color: #fff;
+}
+
+#rezervacija-form button {
+  background: #ffcc00;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#rezervacija-form button:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+/* Scroll margin za navigaciju */
+#kontakt { scroll-margin-top: 160px; }
+
+/* Responsive */
+@media (max-width:480px){
+  .kontakt h2{font-size:1.8rem;}
+  .contact-text{font-size:1rem;}
+  #rezervacija-form{gap:10px;}
+}
