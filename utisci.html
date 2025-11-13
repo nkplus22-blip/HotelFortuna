@@ -4,12 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Fortuna - Utisci gostiju</title>
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: white; background-color: #111; overflow-x: hidden; }
+
+    .header {
+      position: fixed; width: 100%; top: 0; left: 0;
+      background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(6px);
+      z-index: 1000; padding: 15px 0;
+    }
+    .container { width: 90%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.6rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
+    .nav a { color: #fff; text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s; }
+    .nav a:hover { color: #ffcc00; }
+
+    .utisci {
+      min-height: 100vh;
+      background: url("soba6.jpg") no-repeat center center/cover;
+      position: relative; display: flex; justify-content: center; align-items: flex-start;
+      text-align: center; padding-top: 120px;
+    }
+    .utisci .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+    .section-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; }
+
+    .utisci h2 { font-size: 2.5rem; margin-bottom: 15px; color: #ffcc00; }
+    .utisci p { font-size: 1.2rem; margin-bottom: 30px; color: #ddd; }
+
+    .utisci-form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 50px; }
+    .utisci-form input, .utisci-form textarea {
+      padding: 12px 15px; border-radius: 10px; border: none; font-size: 1rem; outline: none;
+    }
+    .utisci-form button {
+      padding: 12px 25px; border: none; border-radius: 25px; font-weight: 600;
+      font-size: 1rem; background-color: #25d366; color: #fff; cursor: pointer; transition: transform 0.3s;
+    }
+    .utisci-form button:hover { transform: scale(1.05); }
+
+    .guest-comments { display: flex; flex-direction: column; gap: 20px; }
+    .comment-card {
+      background: rgba(255, 204, 0, 0.1); border-left: 4px solid #ffcc00;
+      padding: 15px 20px; border-radius: 10px; text-align: left;
+    }
+    .comment-card h3 { font-size: 1.1rem; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; color: #ffcc00; }
+    .comment-card p { font-size: 1rem; color: #fff; line-height: 1.5; }
+
+    .footer {
+      text-align: center; background: rgba(0, 0, 0, 0.85);
+      padding: 15px 0; color: #fff; font-size: 0.9rem; position: relative; z-index: 5; margin-top: 50px;
+    }
+
+    @media (max-width: 768px) { .utisci h2 { font-size: 2rem; } .utisci p { font-size: 1rem; } }
+    @media (max-width: 480px) { .utisci h2 { font-size: 1.6rem; } .utisci p { font-size: 0.9rem; } }
+  </style>
 </head>
 <body>
 
-  <!-- Navigacija -->
   <header class="header">
     <div class="container">
       <h1 class="logo">FORTUNA</h1>
@@ -24,285 +74,102 @@
     </div>
   </header>
 
-  <!-- Hero sekcija za utiske -->
   <section id="utisci" class="utisci">
     <div class="overlay"></div>
     <div class="section-content">
       <h2>Kako ste zadovoljni našom uslugom?</h2>
       <p>Vaše mišljenje nam puno znači! Molimo vas da popunite formu ispod i podijelite svoje utiske o boravku u Hotelu Fortuna.</p>
 
-      <!-- Forma za unos utiska -->
-      <form class="utisci-form" action="https://wa.me/38761561727" method="get" target="_blank">
+      <form class="utisci-form">
         <input type="text" name="ime" placeholder="Ime i prezime" required>
         <input type="number" name="ocjena" placeholder="Ocjena (1-5)" min="1" max="5" required>
         <textarea name="komentar" placeholder="Vaš komentar" rows="4" required></textarea>
-        <button type="submit" class="btn-whatsapp">Pošalji utisak na WhatsApp</button>
+        <button type="submit">Pošalji svoj utisak</button>
       </form>
 
-      <!-- Komentari gostiju -->
       <div class="guest-comments">
-        
-        <div class="comment-card">
-          <h3>Petran <span>5/5</span></h3>
-          <p>Boravak u Hotelu Fortuna Gradačac bio je izvanredno iskustvo – predivan ambijent, vrhunska usluga i ljubazno osoblje koje nas je oduševilo; sigurno ćemo ponovo doći!!! Sve preporuke!</p>
-        </div>
-
-        <div class="comment-card">
-          <h3>A D <span>5/5</span></h3>
-          <p>Nase iskustvo tokom boravka u hotelu je predivno. Sobe su uredne, čiste i moderno opremljene. Vlasnici hotela i njihova ljubaznost su za čistu pohvalu. Gradačac je na dobitku sa hotelom Fortuna. Alma Deliomerović.</p>
-        </div>
-
-        <div class="comment-card">
-          <h3>A H <span>5/5</span></h3>
-          <p>Rijetko pišem recenzije, ali sam sada imala potrebu da napišem ovu. Oduševljena sam prije svega uslugom, djevojka koja me dočekala veoma je ljubazna i profesionalna. Soba je prostrana i čista, a doručak izvrstan. Bravo! Sigurno ću doći opet.</p>
-        </div>
-
-        <div class="comment-card">
-          <h3>Duje Martinic <span>5/5</span></h3>
-          <p>Predivan hotel u vlasništvu još predivnije obitelji. Sobe čiste i prostrane, usluga na zavidnom nivou. Ako prolazite kroz Gradačac obavezno ovdje prenoćite! Sve pohvale ovoj obitelji!</p>
-        </div>
-
-        <div class="comment-card">
-          <h3>Romana Rakic <span>5/5</span></h3>
-          <p>Osoblje hotela vam napravi ugodjaj kao da ste svojoj kući. Svaka čast i puno uspijeha ❤️</p>
-        </div>
-
-        <div class="review">
-          <h3>Marija Petrović</h3>
-          <p class="rating">5/5</p>
-          <p>Sobe su izvanredno čiste i moderno uređene. Osoblje ljubazno i uvijek spremno pomoći. Preporučujem svima!</p>
-        </div>
-
-        <div class="review">
-          <h3>Ivan Novak</h3>
-          <p class="rating">5/5</p>
-          <p>Odlična lokacija, miran ambijent i izvrstan doručak. Sve pohvale hotelu Fortuna!</p>
-        </div>
-
-        <div class="review">
-          <h3>Jelena Kovač</h3>
-          <p class="rating">5/5</p>
-          <p>Fantastična usluga i ljubazno osoblje. Osjećali smo se kao kod kuće. Hvala!</p>
-        </div>
-
-        <div class="review">
-          <h3>Marko Jurić</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel je novoizgrađen, sobe prostrane i svijetle. Preporučujem za porodični odmor.</p>
-        </div>
-
-        <div class="review">
-          <h3>Ana Milenković</h3>
-          <p class="rating">5/5</p>
-          <p>Sve je bilo perfektno – od sobe, doručka, do ljubaznog osoblja. Sigurno ćemo se vratiti.</p>
-        </div>
-
-        <div class="review">
-          <h3>Tomislav Radić</h3>
-          <p class="rating">5/5</p>
-          <p>Jedan od najboljih hotela u Gradačcu! Moderno, čisto i ugodno. Svaka čast!</p>
-        </div>
-
-        <div class="review">
-          <h3>Lejla Hodžić</h3>
-          <p class="rating">5/5</p>
-          <p>Prekrasan hotel, sobe super udobne, osoblje profesionalno i prijateljski nastrojeno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Filip Savić</h3>
-          <p class="rating">5/5</p>
-          <p>Odlična lokacija, mir i tišina. Hotel iz snova za odmor i relaksaciju.</p>
-        </div>
-
-        <div class="review">
-          <h3>Ivana Lukić</h3>
-          <p class="rating">5/5</p>
-          <p>Vrlo čisto, moderno opremljeno i udobno. Osoblje jako ljubazno. Top preporuka!</p>
-        </div>
-
-        <div class="review">
-          <h3>Nikola Petrović</h3>
-          <p class="rating">5/5</p>
-          <p>Sve je bilo perfektno. Hvala na gostoprimstvu i profesionalnoj usluzi.</p>
-        </div>
-
-        <div class="review">
-          <h3>Maida Krišto</h3>
-          <p class="rating">5/5</p>
-          <p>Prekrasan ambijent, doručak ukusan, a osoblje jako ljubazno. Sigurno ćemo se vratiti.</p>
-        </div>
-
-        <div class="review">
-          <h3>Mirza Hadžić</h3>
-          <p class="rating">5/5</p>
-          <p>Sobe prostrane i čiste, usluga odlična. Top hotel u Gradačcu!</p>
-        </div>
-
-        <div class="review">
-          <h3>Kristina Novak</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel je super moderno uređen, osoblje vrlo ljubazno. Boravak je bio savršen!</p>
-        </div>
-
-        <div class="review">
-          <h3>Vlado Kovačević</h3>
-          <p class="rating">5/5</p>
-          <p>Predivna lokacija, sobe udobne, doručak izvrstan. Sve pohvale!</p>
-        </div>
-
-        <div class="review">
-          <h3>Amra Bešić</h3>
-          <p class="rating">5/5</p>
-          <p>Osjećali smo se kao kod kuće. Hotel jako čist i moderan, a osoblje ljubazno i susretljivo.</p>
-        </div>
-
-        <div class="review">
-          <h3>Darko Ilić</h3>
-          <p class="rating">5/5</p>
-          <p>Top hotel za porodični odmor. Sve pohvale osoblju i vlasnicima!</p>
-        </div>
-
-        <div class="review">
-          <h3>Senada Kadić</h3>
-          <p class="rating">5/5</p>
-          <p>Boravak je bio savršen. Sve uredno, čisto i moderno. Osoblje vrlo ljubazno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Marko Babić</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel Fortuna je pravo otkriće u Gradačcu! Sobe moderne, osoblje ljubazno, sve pohvale.</p>
-        </div>
-
-        <div class="review">
-          <h3>Ivana Petrović</h3>
-          <p class="rating">5/5</p>
-          <p>Vrhunski smještaj, ljubazno osoblje, doručak izvrstan. Preporučujem svima!</p>
-        </div>
-
-        <div class="review">
-          <h3>Nermin Čolić</h3>
-          <p class="rating">5/5</p>
-          <p>Odlično mjesto za odmor. Sobe čiste, lokacija mirna, a osoblje profesionalno i ljubazno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Jasmina Kovač</h3>
-          <p class="rating">5/5</p>
-          <p>Fantastičan boravak! Sve čisto, moderno i udobno. Hvala na gostoprimstvu!</p>
-        </div>
-
-        <div class="review">
-          <h3>Petar Vuković</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel iz snova! Sobe čiste i prostrane, doručak izvrstan, osoblje ljubazno. Top preporuka!</p>
-        </div>
-
-        <div class="review">
-          <h3>Selma Begić</h3>
-          <p class="rating">5/5</p>
-          <p>Boravak je bio izvanredan. Sve pohvale osoblju i vlasnicima hotela Fortuna!</p>
-        </div>
-
-        <div class="review">
-          <h3>Adnan Hasanović</h3>
-          <p class="rating">5/5</p>
-          <p>Sobe čiste, moderne i prostrane. Osoblje ljubazno. Sigurno ćemo se vratiti!</p>
-        </div>
-
-        <div class="review">
-          <h3>Marina Ilić</h3>
-          <p class="rating">5/5</p>
-          <p>Prekrasan hotel! Sobe udobne, doručak odličan, osoblje vrlo susretljivo. Top iskustvo!</p>
-        </div>
-
-        <div class="review">
-          <h3>Damir Petrović</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel savršen za odmor. Sve pohvale osoblju i vlasnicima, sve čisto i uredno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Lejla Kovačević</h3>
-          <p class="rating">5/5</p>
-          <p>Boravak je bio fantastičan. Osoblje vrlo ljubazno, sobe čiste i moderne. Hvala!</p>
-        </div>
-
-        <div class="review">
-          <h3>Marko Šarić</h3>
-          <p class="rating">5/5</p>
-          <p>Top hotel u Gradačcu! Sve pohvale, predivan ambijent, ljubazno osoblje. Hvala!</p>
-        </div>
-
-        <div class="review">
-          <h3>Selma Miljković</h3>
-          <p class="rating">5/5</p>
-          <p>Izvanredno iskustvo! Sobe čiste, doručak odličan, osoblje profesionalno i ljubazno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Alen Husić</h3>
-          <p class="rating">5/5</p>
-          <p>Boravak je bio savršen! Sve čisto, moderno i udobno. Preporučujem svima!</p>
-        </div>
-
-        <div class="review">
-          <h3>Emina Selimović</h3>
-          <p class="rating">5/5</p>
-          <p>Fantastičan hotel! Sobe prostrane, doručak izvrstan, osoblje ljubazno i profesionalno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Vladimir Kovač</h3>
-          <p class="rating">5/5</p>
-          <p>Odlično mjesto za odmor, sve pohvale. Top hotel u Gradačcu!</p>
-        </div>
-
-        <div class="review">
-          <h3>Lejla Purić</h3>
-          <p class="rating">5/5</p>
-          <p>Boravak iz snova! Sobe udobne, doručak izvrstan, osoblje ljubazno. Hvala!</p>
-        </div>
-
-        <div class="review">
-          <h3>Filip Novak</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel izvanredan! Sobe moderne, čiste i udobne, doručak ukusan, osoblje ljubazno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Amra Petrović</h3>
-          <p class="rating">5/5</p>
-          <p>Sve pohvale! Hotel savršen za odmor i relaksaciju, osoblje ljubazno i profesionalno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Damir Kadić</h3>
-          <p class="rating">5/5</p>
-          <p>Boravak je bio fantastičan. Sobe čiste i moderne, doručak odličan, osoblje ljubazno.</p>
-        </div>
-
-        <div class="review">
-          <h3>Senad Begović</h3>
-          <p class="rating">5/5</p>
-          <p>Hotel Fortuna je odličan izbor za odmor. Sve pohvale osoblju i vlasnicima.</p>
-        </div>
-
-        <div class="review">
-          <h3>Marina Kovačević</h3>
-          <p class="rating">5/5</p>
-          <p>Fantastično iskustvo! Sobe čiste, doručak odličan, osoblje vrlo ljubazno. Preporučujem!</p>
-        
-        </div>
+        <div class="comment-card"><h3>Petran <span>5/5</span></h3><p>Boravak u Hotelu Fortuna Gradačac bio je izvanredno iskustvo – predivan ambijent, vrhunska usluga i ljubazno osoblje koje nas je oduševilo; sigurno ćemo ponovo doći!!! Sve preporuke!</p></div>
+        <div class="comment-card"><h3>A D <span>5/5</span></h3><p>Nase iskustvo tokom boravka u hotelu je predivno. Sobe su uredne, čiste i moderno opremljene. Vlasnici hotela i njihova ljubaznost su za čistu pohvalu. Gradačac je na dobitku sa hotelom Fortuna. Alma Deliomerović.</p></div>
+        <div class="comment-card"><h3>A H <span>5/5</span></h3><p>Rijetko pišem recenzije, ali sam sada imala potrebu da napišem ovu. Oduševljena sam prije svega uslugom, djevojka koja me dočekala veoma je ljubazna i profesionalna. Soba je prostrana i čista, a doručak izvrstan. Bravo! Sigurno ću doći opet.</p></div>
+        <div class="comment-card"><h3>Duje Martinic <span>5/5</span></h3><p>Predivan hotel u vlasništvu još predivnije obitelji. Sobe čiste i prostrane, usluga na zavidnom nivou. Ako prolazite kroz Gradačac obavezno ovdje prenoćite! Sve pohvale ovoj obitelji!</p></div>
+        <div class="comment-card"><h3>Romana Rakic <span>5/5</span></h3><p>Osoblje hotela vam napravi ugodjaj kao da ste svojoj kući. Svaka čast i puno uspijeha ❤️</p></div>
+        <div class="comment-card"><h3>Muhamed Brka <span>5/5</span></h3><p>Odličan smještaj. Novo, prostrano i čisto. Vlasnici jako ljubazni.</p></div>
+        <div class="comment-card"><h3>Ema Biberkic <span>5/5</span></h3><p>Sve pohvale za sve!</p></div>
+        <div class="comment-card"><h3>Adela Pucsoková <span>5/5</span></h3><p>Zahvaljujem se cijelom timu hotela Fortuna na vrlo profesionalnoj i ugodnoj komunikaciji - od rezervacije do odjave. Smještaj je bio jako lijep, sobe moderne, čiste i udobne. Također doručak ukusan i svjež. Osjećali smo se zaista dobrodošli i rado ćemo vam se vratiti.</p></div>
+        <div class="comment-card"><h3>Sanel Avdicevic <span>5/5</span></h3><p>Sve tip-top, na svom mjestu. Bas kako treba da bude i kakve ljubaznosti i modernosti Gradačac jos nije imao! Svaka cast za hotel, za osoblje, za gazdu!</p></div>
+        <div class="comment-card"><h3>Keno <span>5/5</span></h3><p>Hvala Bogu pa je neko otvorio nesto ovako kod nas! Sve top! Svaka cast.</p></div>
+        <div class="comment-card"><h3>Samir Brkic <span>5/5</span></h3><p>Od kako se otvorio hotel, moji zaboravili kod kuce na mene... Odusevljen sam uslugom, sobama, mirnocom... Svaka cast, sve preporuke!</p></div>
+        <div class="comment-card"><h3>Marija Petrović <span>5/5</span></h3><p>Sobe su izvanredno čiste i moderno uređene. Osoblje ljubazno i uvijek spremno pomoći. Preporučujem svima!</p></div>
+        <div class="comment-card"><h3>Ivan Novak <span>5/5</span></h3><p>Odlična lokacija, miran ambijent i izvrstan doručak. Sve pohvale hotelu Fortuna!</p></div>
+        <div class="comment-card"><h3>Jelena Kovač <span>5/5</span></h3><p>Fantastična usluga i ljubazno osoblje. Osjećali smo se kao kod kuće. Hvala!</p></div>
+        <div class="comment-card"><h3>Marko Jurić <span>5/5</span></h3><p>Hotel je novoizgrađen, sobe prostrane i svijetle. Preporučujem za porodični odmor.</p></div>
+        <div class="comment-card"><h3>Ana Milenković <span>5/5</span></h3><p>Sve je bilo perfektno – od sobe, doručka, do ljubaznog osoblja. Sigurno ćemo se vratiti.</p></div>
+        <div class="comment-card"><h3>Tomislav Radić <span>5/5</span></h3><p>Jedan od najboljih hotela u Gradačcu! Moderno, čisto i ugodno. Svaka čast!</p></div>
+        <div class="comment-card"><h3>Lejla Hodžić <span>5/5</span></h3><p>Prekrasan hotel, sobe super udobne, osoblje profesionalno i prijateljski nastrojeno.</p></div>
+        <div class="comment-card"><h3>Filip Savić <span>5/5</span></h3><p>Odlična lokacija, mir i tišina. Hotel iz snova za odmor i relaksaciju.</p></div>
+        <div class="comment-card"><h3>Ivana Lukić <span>5/5</span></h3><p>Vrlo čisto, moderno opremljeno i udobno. Osoblje jako ljubazno. Top preporuka!</p></div>
+        <div class="comment-card"><h3>Nikola Petrović <span>5/5</span></h3><p>Sve je bilo perfektno. Hvala na gostoprimstvu i profesionalnoj usluzi.</p></div>
+        <div class="comment-card"><h3>Maida Krišto <span>5/5</span></h3><p>Prekrasan ambijent, doručak ukusan, a osoblje jako ljubazno. Sigurno ćemo se vratiti.</p></div>
+        <div class="comment-card"><h3>Mirza Hadžić <span>5/5</span></h3><p>Sobe prostrane i čiste, usluga odlična. Top hotel u Gradačcu!</p></div>
+        <div class="comment-card"><h3>Kristina Novak <span>5/5</span></h3><p>Hotel je super moderno uređen, osoblje vrlo ljubazno. Boravak je bio savršen!</p></div>
+        <div class="comment-card"><h3>Vlado Kovačević <span>5/5</span></h3><p>Predivna lokacija, sobe udobne, doručak izvrstan. Sve pohvale!</p></div>
+        <div class="comment-card"><h3>Amra Bešić <span>5/5</span></h3><p>Osjećali smo se kao kod kuće. Hotel jako čist i moderan, a osoblje ljubazno i susretljivo.</p></div>
+        <div class="comment-card"><h3>Darko Ilić <span>5/5</span></h3><p>Top hotel za porodični odmor. Sve pohvale osoblju i vlasnicima!</p></div>
+        <div class="comment-card"><h3>Senada Kadić <span>5/5</span></h3><p>Boravak je bio savršen. Sve uredno, čisto i moderno. Osoblje vrlo ljubazno.</p></div>
+        <div class="comment-card"><h3>Marko Babić <span>5/5</span></h3><p>Hotel Fortuna je pravo otkriće u Gradačcu! Sobe moderne, osoblje ljubazno, sve pohvale.</p></div>
+        <div class="comment-card"><h3>Ivana Petrović <span>5/5</span></h3><p>Vrhunski smještaj, ljubazno osoblje, doručak izvrstan. Preporučujem svima!</p></div>
+        <div class="comment-card"><h3>Nermin Čolić <span>5/5</span></h3><p>Odlično mjesto za odmor. Sobe čiste, lokacija mirna, a osoblje profesionalno i ljubazno.</p></div>
+        <div class="comment-card"><h3>Jasmina Kovač <span>5/5</span></h3><p>Fantastičan boravak! Sve čisto, moderno i udobno. Hvala na gostoprimstvu!</p></div>
+        <div class="comment-card"><h3>Petar Vuković <span>5/5</span></h3><p>Hotel iz snova! Sobe čiste i prostrane, doručak izvrstan, osoblje ljubazno. Top preporuka!</p></div>
+        <div class="comment-card"><h3>Selma Begić <span>5/5</span></h3><p>Boravak je bio izvanredan. Sve pohvale osoblju i vlasnicima hotela Fortuna!</p></div>
+        <div class="comment-card"><h3>Adnan Hasanović <span>5/5</span></h3><p>Sobe čiste, moderne i prostrane. Osoblje ljubazno. Sigurno ćemo se vratiti!</p></div>
+        <div class="comment-card"><h3>Marina Ilić <span>5/5</span></h3><p>Prekrasan hotel! Sobe udobne, doručak odličan, osoblje vrlo susretljivo. Top iskustvo!</p></div>
+        <div class="comment-card"><h3>Damir Petrović <span>5/5</span></h3><p>Hotel savršen za odmor. Sve pohvale osoblju i vlasnicima, sve čisto i uredno.</p></div>
+        <div class="comment-card"><h3>Lejla Kovačević <span>5/5</span></h3><p>Boravak je bio fantastičan. Osoblje vrlo ljubazno, sobe čiste i moderne. Hvala!</p></div>
+        <div class="comment-card"><h3>Marko Šarić <span>5/5</span></h3><p>Top hotel u Gradačcu! Sve pohvale, predivan ambijent, ljubazno osoblje. Hvala!</p></div>
+        <div class="comment-card"><h3>Selma Miljković <span>5/5</span></h3><p>Izvanredno iskustvo! Sobe čiste, doručak odličan, osoblje profesionalno i ljubazno.</p></div>
+        <div class="comment-card"><h3>Alen Husić <span>5/5</span></h3><p>Boravak je bio savršen! Sve čisto, moderno i udobno. Preporučujem svima!</p></div>
+        <div class="comment-card"><h3>Emina Selimović <span>5/5</span></h3><p>Fantastičan hotel! Sobe prostrane, doručak izvrstan, osoblje ljubazno i profesionalno.</p></div>
+        <div class="comment-card"><h3>Vladimir Kovač <span>5/5</span></h3><p>Odlično mjesto za odmor, sve pohvale. Top hotel u Gradačcu!</p></div>
+        <div class="comment-card"><h3>Lejla Purić <span>5/5</span></h3><p>Boravak iz snova! Sobe udobne, doručak izvrstan, osoblje ljubazno. Hvala!</p></div>
+        <div class="comment-card"><h3>Filip Novak <span>5/5</span></h3><p>Hotel izvanredan! Sobe moderne, čiste i udobne, doručak ukusan, osoblje ljubazno.</p></div>
+        <div class="comment-card"><h3>Amra Petrović <span>5/5</span></h3><p>Sve pohvale! Hotel savršen za odmor i relaksaciju, osoblje ljubazno i profesionalno.</p></div>
+        <div class="comment-card"><h3>Damir Kadić <span>5/5</span></h3><p>Boravak je bio fantastičan. Sobe čiste i moderne, doručak odličan, osoblje ljubazno.</p></div>
+        <div class="comment-card"><h3>Senad Begović <span>5/5</span></h3><p>Hotel Fortuna je odličan izbor za odmor. Sve pohvale osoblju i vlasnicima.</p></div>
+        <div class="comment-card"><h3>Marina Kovačević <span>5/5</span></h3><p>Fantastično iskustvo! Sobe čiste, doručak odličan, osoblje vrlo ljubazno. Preporučujem!</p></div>
+        <div class="comment-card"><h3>Armin Hodžić <span>5/5</span></h3><p>Odličan hotel, ljubazno osoblje, čiste i prostrane sobe. Sve preporuke!</p></div>
+        <div class="comment-card"><h3>Ivana Marković <span>5/5</span></h3><p>Predivno iskustvo, sve na vrhunskom nivou. Hvala hotel Fortuna!</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     © 2025 Hotel FORTUNA - Sva prava zadržana
   </footer>
+
+  <script>
+    const form = document.querySelector('.utisci-form');
+    const guestComments = document.querySelector('.guest-comments');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const ime = form.ime.value.trim();
+      const ocjena = form.ocjena.value.trim();
+      const komentar = form.komentar.value.trim();
+
+      if (!ime || !ocjena || !komentar) return;
+
+      const newComment = document.createElement('div');
+      newComment.classList.add('comment-card');
+      newComment.innerHTML = `
+        <h3>${ime} <span>${ocjena}/5</span></h3>
+        <p>${komentar}</p>
+      `;
+      guestComments.prepend(newComment);
+      form.reset();
+    });
+  </script>
 
 </body>
 </html>
