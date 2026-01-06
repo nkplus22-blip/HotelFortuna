@@ -1,626 +1,241 @@
-/* Reset i osnovni stil */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  background-color: #111;
-  overflow-x: hidden;
-}
-
-/* Navigacija */
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-  padding: 15px 0;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.6rem;
-  letter-spacing: 2px;
-  color: #fff;
-  font-weight: 700;
-}
-
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav a:hover {
-  color: #ffcc00;
-}
-
-/* Hero sekcija */
-.hero {
-  height: 100vh;
-  background: url("fortuna1.jpg") no-repeat center center/cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 80px; /* Pomak zbog fiksnog headera */
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 20px;
-}
-
-.hero h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  font-weight: 700;
-}
-
-.hero p {
-  font-size: 1.2rem;
+  background: #f8f9fb;
+  color: #222;
   line-height: 1.6;
-  margin-bottom: 30px;
-  font-weight: 400;
+}
+
+/* GLOBAL */
+section {
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
 }
 
 .btn {
   display: inline-block;
-  background: #ffcc00;
-  color: #000;
+  background: #0a3cff;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 30px;
   text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 25px;
   font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
 }
 
 .btn:hover {
+  opacity: 0.9;
+}
+
+/* HEADER */
+.header {
   background: #fff;
-  transform: scale(1.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #eee;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 15px 0;
-  color: #fff;
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+nav a {
+  margin-left: 12px;
+  text-decoration: none;
   font-size: 0.9rem;
-  position: relative;
-  z-index: 5;
+  color: #333;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h2 {
+/* HERO */
+.hero {
+  height: 85vh;
+  background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+              url("img/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  color: #fff;
+  max-width: 320px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #eee;
+  margin-bottom: 25px;
+}
+
+/* QUICK INFO */
+.quick-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: -30px;
+}
+
+.info-box {
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* WHY US */
+.cards {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  padding: 22px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* BOOKING */
+.booking form {
+  display: grid;
+  gap: 12px;
+  max-width: 360px;
+  margin: auto;
+}
+
+.booking input,
+.booking button {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.booking button {
+  background: #0a3cff;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+
+/* FOR WHO */
+.who {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.who span {
+  background: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* TESTIMONIALS */
+.testimonials p {
+  background: #fff;
+  margin-bottom: 14px;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* WOW */
+.wow {
+  background: #0a3cff;
+  color: #fff;
+}
+
+.wow p {
+  color: #e5e9ff;
+}
+
+/* CTA */
+.cta {
+  background: #111;
+  color: #fff;
+}
+
+/* FOOTER */
+.footer {
+  background: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+}
+
+/* WHATSAPP STICKY */
+.whatsapp-sticky {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 999;
+}
+
+/* DESKTOP */
+@media(min-width: 900px) {
+
+  h2 {
     font-size: 2.2rem;
   }
 
-  .hero p {
-    font-size: 1rem;
+  .hero-content {
+    max-width: 520px;
   }
 
-  .nav a {
-    margin-left: 15px;
+  .quick-info {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .container {
-    flex-direction: column;
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .nav {
-    margin-top: 10px;
+  .who {
+    grid-template-columns: repeat(4, 1fr);
   }
-}
-
-/* Sekcija Sobe */
-.rooms {
-  background: #111;
-  padding: 160px 20px 100px 20px; /* Pomak gore zbog fiksnog headera */
-  text-align: center;
-}
-
-#rooms {
-  scroll-margin-top: 160px; /* scroll margin za navigaciju */
-}
-
-.rooms h2 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  color: #ffcc00;
-}
-
-.room-text {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #ddd;
-  line-height: 1.6;
-}
-
-.btn-whatsapp {
-  display: inline-block;
-  background: #25d366;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
-  margin-bottom: 40px;
-}
-
-.btn-whatsapp:hover {
-  background: #1eb358;
-  transform: scale(1.05);
-}
-
-.room-gallery-title {
-  margin-top: 40px;
-  font-size: 1.8rem;
-  color: #ffcc00;
-}
-
-.room-gallery {
-  display: flex;
-  flex-direction: column; /* slike jedna ispod druge */
-  gap: 25px;
-  margin-top: 30px;
-  align-items: center;
-}
-
-.room-img img {
-  width: 90%; /* ili max-width: 600px */
-  border: 4px solid #ffcc00;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease;
-}
-
-.room-img img:hover {
-  transform: scale(1.02);
-}
-
-/* Responsive za mobilne uređaje */
-@media (max-width: 480px) {
-  .hero h2 { font-size: 1.8rem; }
-  .hero p { font-size: 0.9rem; }
-  .room-img img { width: 100%; }
-}
-/* Sekcija O nama */
-.onama {
-  background: url("onama.jpg") no-repeat center center/cover;
-  background-attachment: fixed; /* fiksira pozadinu na ekranu */
-  position: relative;
-  padding: 160px 20px 120px 20px; /* gornji padding zbog fiksnog headera */
-  color: #fff;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.onama .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* tamna pozadina radi čitljivosti */
-}
-
-.onama .section-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.onama h2 {
-  font-size: 2.6rem;
-  margin-bottom: 30px;
-  color: #ffcc00;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.about-text {
-  font-size: 1.15rem;
-  line-height: 2; /* veći razmak radi lakše čitljivosti */
-  margin-bottom: 25px;
-  color: #ddd;
-  font-weight: 400;
-}
-
-/* Scroll margin za navigaciju */
-#onama {
-  scroll-margin-top: 160px;
-}
-
-/* Responsive - tablet i mobilni uređaji */
-@media (max-width: 768px) {
-  .onama h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-  }
-
-  .about-text {
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-}
-
-@media (max-width: 480px) {
-  .onama {
-    padding: 140px 15px 100px 15px;
-  }
-
-  .onama h2 {
-    font-size: 1.8rem;
-  }
-
-  .about-text {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .onama {
-    background-attachment: scroll; /* fiksirana pozadina ne radi dobro na mobilnim browserima */
-  }
-}
-
-
-.btn-email {
-  display: inline-block;
-  background: #e53935;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.btn-email:hover {
-  background: #c62828;
-  transform: scale(1.05);
-}
-
-/* Scroll margin za navigaciju */
-#lokacija {
-  scroll-margin-top: 160px;
-}
-
-/* Responsive mobilni uređaji */
-@media (max-width: 480px) {
-  .lokacija h2 { font-size: 1.8rem; }
-  .location-text { font-size: 1rem; }
-  .map-container iframe { height: 300px; }
-}
-/* Sekcija Kako do nas */
-.lokacija {
-  background: url("lokacija1.jpg") no-repeat center center/cover;
-  background-attachment: fixed; /* fiksirana pozadina */
-  position: relative;
-  padding: 200px 20px 120px 20px; /* padding-top da tekst ne bude ispod headera */
-  color: #fff;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.lokacija .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.lokacija .section-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.lokacija h2 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-  color: #ffcc00;
-}
-
-.location-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  color: #ddd;
-}
-
-/* Google mapa */
-.map-container {
-  width: 100%;
-  max-width: 800px;
-  border: 4px solid #ffcc00;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-/* Dugmad */
-.contact-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.btn-whatsapp {
-  display: inline-block;
-  background: #25d366;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.btn-whatsapp:hover {
-  background: #1eb358;
-  transform: scale(1.05);
-}
-
-.btn-email {
-  display: inline-block;
-  background: #e53935;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.btn-email:hover {
-  background: #c62828;
-  transform: scale(1.05);
-}
-
-/* Scroll margin za navigaciju */
-#lokacija {
-  scroll-margin-top: 160px;
-}
-
-/* Responsive mobilni uređaji */
-@media (max-width: 480px) {
-  .lokacija h2 { font-size: 1.8rem; }
-  .location-text { font-size: 1rem; }
-  .map-container iframe { height: 300px; }
-}
-.kontakt {
-  background: url("kontakt.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
-  position: relative;
-  padding: 160px 20px 100px 20px;
-  color: #fff;
-  text-align: center;
-}
-
-.kontakt .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-
-.kontakt .section-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.kontakt h2 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-  color: #ffcc00;
-}
-
-.contact-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  color: #ddd;
-}
-
-.contact-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.btn-whatsapp, .btn-email {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s;
-}
-
-.btn-whatsapp { background: #25d366; color: #fff; }
-.btn-whatsapp:hover { background: #1eb358; transform: scale(1.05); }
-
-.btn-email { background: #e53935; color: #fff; }
-.btn-email:hover { background: #c62828; transform: scale(1.05); }
-
-/* Forma rezervacije */
-#rezervacija-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-#rezervacija-form input,
-#rezervacija-form select,
-#rezervacija-form button {
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-}
-
-#rezervacija-form input,
-#rezervacija-form select {
-  background: #222;
-  color: #fff;
-}
-
-#rezervacija-form button {
-  background: #ffcc00;
-  color: #000;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-}
-
-#rezervacija-form button:hover {
-  background: #fff;
-  transform: scale(1.05);
-}
-
-/* Scroll margin za navigaciju */
-#kontakt { scroll-margin-top: 160px; }
-
-/* Responsive */
-@media (max-width:480px){
-  .kontakt h2{font-size:1.8rem;}
-  .contact-text{font-size:1rem;}
-  #rezervacija-form{gap:10px;}
-}
-/* Sekcija Utisci */
-.utisci {
-  background: url("soba6.jpg") no-repeat center center/cover;
-  position: relative;
-  padding: 160px 20px 100px 20px;
-  color: #fff;
-  text-align: center;
-}
-
-.utisci .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.utisci .section-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Forma za utiske */
-.utisci-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-
-.utisci-form input,
-.utisci-form textarea {
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-}
-
-.utisci-form input:focus,
-.utisci-form textarea:focus {
-  outline: 2px solid #ffcc00;
-}
-
-.utisci-form .btn-whatsapp {
-  background: #25d366;
-  color: #fff;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.utisci-form .btn-whatsapp:hover {
-  background: #1eb358;
-  transform: scale(1.05);
-}
-
-/* Komentari gostiju */
-.guest-comments {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.comment-card {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  text-align: left;
-}
-
-.comment-card h3 {
-  font-size: 1.1rem;
-  color: #ffcc00;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.comment-card p {
-  color: #ddd;
-  line-height: 1.6;
-}
-
-/* Responsive mobilni uređaji */
-@media (max-width: 768px) {
-  .utisci .section-content { padding: 20px; }
-  .utisci h2 { font-size: 2rem; }
-  .utisci-form input, .utisci-form textarea { font-size: 0.95rem; }
-  .comment-card h3 { font-size: 1rem; }
 }
