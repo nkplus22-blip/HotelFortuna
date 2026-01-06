@@ -3,42 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel Fortuna - Gradačac</title>
-  <link rel="stylesheet" href="style.css">
+
+  <title>Hotel Fortuna – Gradačac | Moderan i miran smještaj</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Hotel Fortuna Gradačac – moderan, miran i udoban smještaj. Idealno za odmor, porodice i poslovne goste. Rezervišite direktno putem WhatsAppa.">
+  <meta name="keywords" content="Hotel Fortuna, hotel Gradačac, smještaj Gradačac, prenoćište, hotel BiH">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org Hotel -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Hotel Fortuna",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gradačac",
+      "addressCountry": "BA"
+    },
+    "telephone": "+38761561727"
+  }
+  </script>
 </head>
+
 <body>
 
-  <!-- Navigacija -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">FORTUNA</h1>
-      <nav class="nav">
-        <a href="home">Početna</a>
-        <a href="sobe.html">Sobe</a>
-        <a href="onama.html">O nama</a>
-        <a href="lokacija.html">Kako do nas</a>
-        <a href="utisci.html">Utisci gostiju</a>
-        <a href="kontakt.html">Kontakt i Rezervacije</a>
-      </nav>
-    </div>
-  </header>
+<!-- STICKY WHATSAPP -->
+<a href="https://wa.me/38761561727" class="whatsapp-sticky">Rezerviši</a>
 
-  <!-- Hero sekcija -->
-  <section id="home" class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h2>HOTEL FORTUNA</h2>
-      <p>Predstavljamo vam Hotel Fortuna - nešto novo, drugačije i posebno u Gradačcu!<br>
-      Nalazimo se 3km od centra Gradačca. Dođite i uživajte u Vašem odmoru!</p>
-      <a class="btn" href="https://wa.me/38761561727" target="_blank">Rezerviši sada!</a>
-    </div>
-  </section>
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1 class="logo">FORTUNA</h1>
+    <nav class="nav">
+      <a href="#home">Početna</a>
+      <a href="sobe.html">Sobe</a>
+      <a href="onama.html">O nama</a>
+      <a href="lokacija.html">Kako do nas</a>
+      <a href="utisci.html">Utisci</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Footer -->
-  <footer class="footer">
-    © 2025 Hotel FORTUNA - Sva prava zadržana
-  </footer>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h2>Hotel Fortuna</h2>
+    <p>Moderan i miran smještaj u Gradačcu<br>
+    Idealno za odmor, porodice i poslovne goste</p>
+
+    <div class="hero-buttons">
+      <a href="https://wa.me/38761561727" class="btn">Rezerviši sada</a>
+      <a href="sobe.html" class="btn-outline">Pogledaj sobe</a>
+    </div>
+
+    <div class="hero-icons">
+      <span>🛏️ Moderne sobe</span>
+      <span>🚗 Besplatan parking</span>
+      <span>📶 Brzi Wi-Fi</span>
+      <span>☕ Mirna lokacija</span>
+    </div>
+  </div>
+</section>
+
+<!-- MINI REZERVACIJA -->
+<section class="booking">
+  <h2>Brza rezervacija</h2>
+  <form onsubmit="sendWhatsApp(); return false;">
+    <input type="date" id="dolazak" required>
+    <input type="date" id="odlazak" required>
+    <input type="number" id="osobe" placeholder="Broj osoba" required>
+    <button type="submit">Pošalji upit</button>
+  </form>
+</section>
+
+<!-- ZAŠTO MI -->
+<section class="why-us">
+  <h2>Zašto Hotel Fortuna?</h2>
+  <div class="features">
+    <div class="feature">Mirna lokacija udaljena 3km od centra</div>
+    <div class="feature">Novo i čisto, visok standard</div>
+    <div class="feature">Direktna i brza rezervacija</div>
+  </div>
+</section>
+
+<!-- ZA KOGA -->
+<section class="for-who">
+  <h2>Idealno za</h2>
+  <div class="targets">
+    <span>💑 Parove</span>
+    <span>👨‍👩‍👧 Porodice</span>
+    <span>💼 Poslovne goste</span>
+    <span>🚗 Putnike u tranzitu</span>
+  </div>
+</section>
+
+<!-- GALERIJA -->
+<section class="gallery-preview">
+  <h2>Naš ambijent</h2>
+  <div class="gallery">
+    <img src="img/soba1.jpg" alt="Soba">
+    <img src="img/soba2.jpg" alt="Soba">
+    <img src="img/recepcija.jpg" alt="Recepcija">
+  </div>
+  <a href="sobe.html" class="btn">Pogledaj sve</a>
+</section>
+
+<!-- UTISCI -->
+<section class="testimonials">
+  <h2>Utisci gostiju</h2>
+  <blockquote>“Izuzetno čisto, mirno i moderno. Preporuka!” – Amir</blockquote>
+  <blockquote>“Savršeno za odmor i privatnost.” – Jasmina</blockquote>
+</section>
+
+<!-- WOW -->
+<section class="wow">
+  <h2>145+ zadovoljnih gostiju</h2>
+  <p>Veliki broj gostiju nam se vraća i preporučuje Hotel Fortuna.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Spremni za odmor?</h2>
+  <a href="https://wa.me/38761561727" class="btn">Kontaktirajte nas</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><strong>Hotel Fortuna – Gradačac</strong></p>
+  <p>📞 +387 61 561 727</p>
+  <p>© 2025 Sva prava zadržana</p>
+</footer>
+
+<!-- JS -->
+<script>
+function sendWhatsApp() {
+  const d = document.getElementById('dolazak').value;
+  const o = document.getElementById('odlazak').value;
+  const b = document.getElementById('osobe').value;
+  const msg = `Rezervacija:%0ADolazak: ${d}%0AOdlazak: ${o}%0ABroj osoba: ${b}`;
+  window.open(`https://wa.me/38761561727?text=${msg}`, '_blank');
+}
+</script>
 
 </body>
 </html>
