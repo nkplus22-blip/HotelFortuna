@@ -43,15 +43,62 @@ body{
   font-size:26px;font-weight:700;
   letter-spacing:3px
 }
-nav a{
-  margin-left:18px;text-decoration:none;
-  color:#222;font-weight:500
+
+/* HAMBURGER */
+.menu-toggle{
+  width:34px;height:24px;
+  background:none;border:none;
+  cursor:pointer;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+}
+.menu-toggle span{
+  height:3px;width:100%;
+  background:#222;border-radius:3px;
+}
+
+/* OVERLAY MENU */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.92);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:.3s;
+  z-index:200
+}
+.overlay.open{
+  opacity:1;pointer-events:auto
+}
+.overlay a{
+  color:#fff;
+  text-decoration:none;
+  font-size:26px;
+  margin:12px 0;
+  font-weight:600
+}
+.overlay .close{
+  position:absolute;
+  top:20px;right:25px;
+  font-size:40px;
+  color:#fff;
+  cursor:pointer
 }
 
 /* HERO */
 .hero{
-  background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-             url("fortuna1.jpg") center/cover;
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:0 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("fortuna1.jpg") center/cover;
 }
 .hero h2{font-size:46px;margin-bottom:10px}
 .hero p{font-size:18px;opacity:.95}
@@ -80,7 +127,7 @@ nav a{
   font-weight:600
 }
 
-/* SECTION */
+/* SECTIONS */
 section{padding:70px 0}
 section h2{text-align:center;font-size:32px;margin-bottom:20px}
 
@@ -101,9 +148,7 @@ section h2{text-align:center;font-size:32px;margin-bottom:20px}
 }
 
 /* BOOKING */
-.booking{
-  background:#f2f2f2
-}
+.booking{background:#f2f2f2}
 .booking form{
   max-width:600px;
   margin:30px auto 0;
@@ -167,20 +212,31 @@ section h2{text-align:center;font-size:32px;margin-bottom:20px}
 <header class="header">
   <div class="container">
     <div class="logo">FORTUNA</div>
-    <nav>
-      <a href="#">Početna</a>
-      <a href="sobe.html">Sobe</a>
-      <a href="onama.html">O nama</a>
-      <a href="lokacija.html">Kako do nas</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
+
+    <button class="menu-toggle" onclick="openMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
 
+<!-- OVERLAY MENU -->
+<div class="overlay" id="menu">
+  <div class="close" onclick="closeMenu()">×</div>
+  <a href="#">Početna</a>
+  <a href="sobe.html">Sobe</a>
+  <a href="onama.html">O nama</a>
+  <a href="lokacija.html">Kako do nas</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
 <section class="hero">
-  <h2>Hotel Fortuna</h2>
-  <p>Mir, udobnost i moderan smještaj u Gradačcu</p>
-  <a href="https://wa.me/38761561727" class="btn">Rezerviši odmah</a>
+  <div>
+    <h2>Hotel Fortuna</h2>
+    <p>Mir, udobnost i moderan smještaj u Gradačcu</p>
+    <a href="https://wa.me/38761561727" class="btn">Rezerviši odmah</a>
+  </div>
 </section>
 
 <div class="quick-info">
@@ -230,7 +286,7 @@ section h2{text-align:center;font-size:32px;margin-bottom:20px}
   <p>Veliki broj gostiju nam se vraća i preporučuje nas.</p>
 </section>
 
-<section class="cta" style="text-align:center">
+<section style="text-align:center">
   <h2>Spremni za boravak?</h2>
   <a href="https://wa.me/38761561727" class="btn">Kontaktirajte nas</a>
 </section>
@@ -242,6 +298,9 @@ section h2{text-align:center;font-size:32px;margin-bottom:20px}
 </footer>
 
 <script>
+function openMenu(){document.getElementById("menu").classList.add("open")}
+function closeMenu(){document.getElementById("menu").classList.remove("open")}
+
 function sendWhatsApp(){
   const d=dolazak.value;
   const o=odlazak.value;
