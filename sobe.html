@@ -1,70 +1,235 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobe - Hotel Fortuna</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sobe – Hotel Fortuna | Udoban smještaj</title>
+<meta name="description" content="Sobe hotela Fortuna u Gradačcu – moderne, čiste i udobne. Pogledajte galeriju i rezervišite putem WhatsAppa.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins,system-ui,Arial;
+  background:#fff;
+  color:#222;
+}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  z-index:100
+}
+.header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:70px
+}
+.logo{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:3px
+}
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color:#222;
+  font-weight:500
+}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("fortuna1.jpg") center/cover;
+  color:#fff;
+  text-align:center;
+  padding:100px 20px
+}
+.hero h1{
+  font-size:42px;
+  margin-bottom:10px
+}
+.hero p{
+  max-width:700px;
+  margin:auto;
+  font-size:18px;
+  opacity:.95
+}
+
+/* SECTION */
+section{padding:70px 0}
+section h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:18px
+}
+.section-text{
+  max-width:800px;
+  margin:0 auto 18px;
+  text-align:center;
+  font-size:16px;
+  line-height:1.7
+}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  max-width:1000px;
+  margin:40px auto 0
+}
+.feature{
+  background:#f8f8f8;
+  padding:18px;
+  border-radius:16px;
+  text-align:center;
+  font-weight:600
+}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin-top:40px
+}
+.btn{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:30px;
+  background:#c59d5f;
+  color:#fff;
+  font-weight:700;
+  text-decoration:none
+}
+
+/* GALLERY */
+.gallery-title{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:30px
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px
+}
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  transition:.3s
+}
+.gallery img:hover{
+  transform:scale(1.04)
+}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:30px 20px;
+  font-size:14px
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:32px}
+  nav{display:none}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Navigacija -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">FORTUNA</h1>
-      <nav class="nav">
-        <a href="index.html#home">Početna</a>
-        <a href="sobe.html">Sobe</a>
-        <a href="onama.html">O nama</a>
-        <a href="lokacija.html">Kako do nas</a>
-        <a href="utisci.html">Utisci gostiju</a>
-        <a href="kontakt.html">Kontakt i Rezervacije</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+  <div class="container">
+    <div class="logo">FORTUNA</div>
+    <nav>
+      <a href="index.html">Početna</a>
+      <a href="sobe.html">Sobe</a>
+      <a href="onama.html">O nama</a>
+      <a href="lokacija.html">Kako do nas</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Sekcija Sobe -->
-  <section id="rooms" class="rooms">
-    <div class="section-content">
-      <h2>Uživajte u udobnosti naših modernih soba</h2>
-      <p class="room-text">
-        Hotel Fortuna u Gradačcu nudi porodične i luksuzne sobe sa privatnim kupatilima, klima-uređajem i besplatnim WiFi-jem.  
-        Svaka soba ima radni sto, TV i prostor za opuštanje. Naši gosti posebno hvale lokaciju i udobnost smještaja.
-      </p>
-      <p class="room-text">
-        Za dostupnost soba kontaktirajte nas putem WhatsApp-a. Pronaći ćemo baš ono što Vama odgovara!
-      </p>
+<section class="hero">
+  <h1>Naše sobe</h1>
+  <p>
+    Uživajte u udobnosti modernih soba hotela Fortuna – idealnih za odmor,
+    poslovni boravak i porodična putovanja.
+  </p>
+</section>
 
-      <a class="btn-whatsapp" href="https://wa.me/38761561727" target="_blank">Kontaktiraj nas na WhatsApp</a>
+<section>
+  <h2>Udobnost na prvom mjestu</h2>
 
-      <h3 class="room-gallery-title">Kako izgledaju naše sobe?</h3>
+  <p class="section-text">
+    Hotel Fortuna u Gradačcu nudi porodične i luksuzne sobe sa privatnim kupatilima,
+    klima-uređajem i besplatnim Wi-Fi internetom. Svaka soba posjeduje TV, radni sto
+    i prostor za opuštanje.
+  </p>
 
-      <div class="room-gallery">
-        <div class="room-img"><img src="soba1.jpg" alt=""></div>
-        <div class="room-img"><img src="soba2.jpg" alt=""></div>
-        <div class="room-img"><img src="soba3.jpg" alt=""></div>
-        <div class="room-img"><img src="soba4.jpg" alt=""></div>
-        <div class="room-img"><img src="soba5.jpg" alt=""></div>
-        <div class="room-img"><img src="soba6.jpg" alt=""></div>
-        <div class="room-img"><img src="soba7.jpg" alt=""></div>
-        <div class="room-img"><img src="soba8.jpg" alt=""></div>
-        <div class="room-img"><img src="soba9.jpg" alt=""></div>
-        <div class="room-img"><img src="soba10.jpg" alt=""></div>
-        <div class="room-img"><img src="soba11.jpg" alt=""></div>
-        <div class="room-img"><img src="soba12.jpg" alt=""></div>
-        <div class="room-img"><img src="soba13.jpg" alt=""></div>
-        <div class="room-img"><img src="soba14.jpg" alt=""></div>
-        <div class="room-img"><img src="soba15.jpg" alt=""></div>
-        <div class="room-img"><img src="soba16.jpg" alt=""></div>
-      </div>
-    </div>
-  </section>
+  <p class="section-text">
+    Naši gosti posebno ističu čistoću, mirnu lokaciju i kvalitet sna.  
+    Za dostupnost i rezervacije – kontaktirajte nas direktno putem WhatsApp-a.
+  </p>
 
-  <!-- Footer -->
-  <footer class="footer">
-    © 2025 Hotel FORTUNA - Sva prava zadržana
-  </footer>
+  <div class="features">
+    <div class="feature">🛏️ Udobni kreveti</div>
+    <div class="feature">🚿 Privatno kupatilo</div>
+    <div class="feature">❄️ Klima-uređaj</div>
+    <div class="feature">📶 Besplatan Wi-Fi</div>
+    <div class="feature">📺 TV u svakoj sobi</div>
+    <div class="feature">🧼 Visok nivo čistoće</div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="https://wa.me/38761561727" target="_blank">
+      Kontaktiraj nas na WhatsApp
+    </a>
+  </div>
+</section>
+
+<section>
+  <h3 class="gallery-title">Kako izgledaju naše sobe?</h3>
+
+  <div class="gallery">
+    <img src="soba1.jpg" alt="">
+    <img src="soba2.jpg" alt="">
+    <img src="soba3.jpg" alt="">
+    <img src="soba4.jpg" alt="">
+    <img src="soba5.jpg" alt="">
+    <img src="soba6.jpg" alt="">
+    <img src="soba7.jpg" alt="">
+    <img src="soba8.jpg" alt="">
+    <img src="soba9.jpg" alt="">
+    <img src="soba10.jpg" alt="">
+    <img src="soba11.jpg" alt="">
+    <img src="soba12.jpg" alt="">
+    <img src="soba13.jpg" alt="">
+    <img src="soba14.jpg" alt="">
+    <img src="soba15.jpg" alt="">
+    <img src="soba16.jpg" alt="">
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Hotel Fortuna – Sva prava zadržana
+</footer>
 
 </body>
 </html>
