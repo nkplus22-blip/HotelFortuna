@@ -3,25 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Fortuna – Gradačac</title>
+
+<title>Hotel Fortuna – Gradačac | Moderan i miran smještaj</title>
+<meta name="description" content="Hotel Fortuna Gradačac – moderan, miran i udoban smještaj. Direktna rezervacija putem WhatsAppa.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 
-<meta name="description" content="Hotel Fortuna Gradačac – moderan, miran i udoban smještaj. Rezervišite direktno putem WhatsAppa.">
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins,system-ui,Arial;
+  color:#222;
+  background:#fff;
+}
+.container{max-width:1200px;margin:auto;padding:0 20px}
 
+/* WHATSAPP */
+.whatsapp-sticky{
+  position:fixed;bottom:20px;right:20px;
+  background:#25D366;color:#fff;
+  padding:14px 22px;border-radius:40px;
+  font-weight:700;text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  z-index:999
+}
+
+/* HEADER */
+.header{
+  position:sticky;top:0;
+  background:#fff;border-bottom:1px solid #eee;
+  z-index:100
+}
+.header .container{
+  display:flex;align-items:center;
+  justify-content:space-between;height:70px
+}
+.logo{
+  font-size:26px;font-weight:700;
+  letter-spacing:3px
+}
+nav a{
+  margin-left:18px;text-decoration:none;
+  color:#222;font-weight:500
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+             url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80") center/cover;
+  color:#fff;text-align:center;
+  padding:120px 20px
+}
+.hero h2{font-size:46px;margin-bottom:10px}
+.hero p{font-size:18px;opacity:.95}
+.btn{
+  display:inline-block;margin-top:24px;
+  padding:14px 30px;border-radius:30px;
+  background:#c59d5f;color:#fff;
+  font-weight:700;text-decoration:none
+}
+
+/* QUICK INFO */
+.quick-info{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  max-width:1000px;
+  margin:-40px auto 60px;
+  padding:0 20px
+}
+.info-box{
+  background:#fff;
+  padding:18px;
+  text-align:center;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  font-weight:600
+}
+
+/* SECTION */
+section{padding:70px 0}
+section h2{text-align:center;font-size:32px;margin-bottom:20px}
+
+/* WHY US */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+  max-width:1000px;
+  margin:auto
+}
+.card{
+  background:#f8f8f8;
+  padding:26px;
+  border-radius:18px;
+  text-align:center;
+  font-weight:500
+}
+
+/* BOOKING */
+.booking{
+  background:#f2f2f2
+}
+.booking form{
+  max-width:600px;
+  margin:30px auto 0;
+  display:grid;
+  gap:14px
+}
+.booking input,
+.booking button{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px
+}
+.booking button{
+  background:#c59d5f;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer
+}
+
+/* FOR WHO */
+.who{
+  display:flex;flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;font-size:16px
+}
+
+/* TESTIMONIALS */
+.testimonials{
+  background:#fafafa;
+  text-align:center
+}
+.testimonials p{
+  font-style:italic;
+  max-width:700px;
+  margin:10px auto
+}
+
+/* WOW */
+.wow{
+  background:#c59d5f;
+  color:#fff;
+  text-align:center
+}
+.wow h2{margin-bottom:10px}
+
+/* FOOTER */
+.footer{
+  background:#111;color:#aaa;
+  text-align:center;
+  padding:40px 20px
+}
+.footer p{margin:6px 0}
+</style>
 </head>
+
 <body>
 
-<!-- STICKY WHATSAPP -->
 <a class="whatsapp-sticky" href="https://wa.me/38761561727">Rezerviši</a>
 
-<!-- HEADER -->
 <header class="header">
   <div class="container">
-    <h1 class="logo">FORTUNA</h1>
+    <div class="logo">FORTUNA</div>
     <nav>
-      <a href="#home">Početna</a>
+      <a href="#">Početna</a>
       <a href="sobe.html">Sobe</a>
       <a href="onama.html">O nama</a>
       <a href="lokacija.html">Kako do nas</a>
@@ -30,34 +179,28 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h2>Hotel Fortuna</h2>
-    <p>Mir, udobnost i moderan smještaj u Gradačcu</p>
-    <a href="https://wa.me/38761561727" class="btn">Rezerviši odmah</a>
-  </div>
+<section class="hero">
+  <h2>Hotel Fortuna</h2>
+  <p>Mir, udobnost i moderan smještaj u Gradačcu</p>
+  <a href="https://wa.me/38761561727" class="btn">Rezerviši odmah</a>
 </section>
 
-<!-- BRZE INFO -->
-<section class="quick-info">
-  <div class="info-box">🛏️ Moderne sobe</div>
+<div class="quick-info">
+  <div class="info-box">🛏️ Moderne i čiste sobe</div>
   <div class="info-box">🚗 Besplatan parking</div>
   <div class="info-box">📶 Brzi Wi-Fi</div>
   <div class="info-box">☕ Mirna lokacija</div>
-</section>
+</div>
 
-<!-- ZAŠTO MI -->
-<section class="why-us">
+<section>
   <h2>Zašto Hotel Fortuna?</h2>
   <div class="cards">
-    <div class="card">Mirna lokacija 3km od centra</div>
+    <div class="card">Mirna lokacija – idealna za odmor</div>
     <div class="card">Visok nivo čistoće i komfora</div>
     <div class="card">Direktna i brza rezervacija</div>
   </div>
 </section>
 
-<!-- REZERVACIJA -->
 <section class="booking">
   <h2>Brza rezervacija</h2>
   <form onsubmit="sendWhatsApp(); return false;">
@@ -68,8 +211,7 @@
   </form>
 </section>
 
-<!-- ZA KOGA -->
-<section class="for-who">
+<section>
   <h2>Idealno za</h2>
   <div class="who">
     <span>💑 Parove</span>
@@ -79,39 +221,36 @@
   </div>
 </section>
 
-<!-- UTISCI -->
 <section class="testimonials">
   <h2>Utisci gostiju</h2>
   <p>“Izuzetno čisto, mirno i moderno.”</p>
-  <p>“Savršeno mjesto za odmor.”</p>
+  <p>“Savršeno mjesto za odmor i poslovni boravak.”</p>
 </section>
 
-<!-- WOW -->
 <section class="wow">
   <h2>145+ zadovoljnih gostiju</h2>
   <p>Veliki broj gostiju nam se vraća i preporučuje nas.</p>
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<section class="cta" style="text-align:center">
   <h2>Spremni za boravak?</h2>
   <a href="https://wa.me/38761561727" class="btn">Kontaktirajte nas</a>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <p>Hotel Fortuna – Gradačac</p>
   <p>📞 +387 61 561 727</p>
-  <p>© 2026
-  </p>
+  <p>© 2026 Hotel Fortuna</p>
 </footer>
 
 <script>
-function sendWhatsApp() {
-  const d = dolazak.value;
-  const o = odlazak.value;
-  const b = osobe.value;
-  window.open(`https://wa.me/38761561727?text=Rezervacija:%0ADolazak:${d}%0AOdlazak:${o}%0ABroj osoba:${b}`);
+function sendWhatsApp(){
+  const d=dolazak.value;
+  const o=odlazak.value;
+  const b=osobe.value;
+  window.open(
+    `https://wa.me/38761561727?text=Rezervacija Hotela Fortuna:%0ADolazak:${d}%0AOdlazak:${o}%0ABroj osoba:${b}`
+  );
 }
 </script>
 
