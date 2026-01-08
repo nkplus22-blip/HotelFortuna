@@ -1,88 +1,268 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt - Hotel Fortuna</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kontakt i rezervacije – Hotel Fortuna</title>
+<meta name="description" content="Kontakt i rezervacije hotela Fortuna u Gradačcu. Brza rezervacija putem WhatsAppa ili emaila.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins,system-ui,Arial;
+  background:#fff;
+  color:#222;
+}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  z-index:100
+}
+.header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:70px
+}
+.logo{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:3px
+}
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color:#222;
+  font-weight:500
+}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("fortuna1.jpg") center/cover;
+  color:#fff;
+  text-align:center;
+  padding:90px 20px
+}
+.hero h1{
+  font-size:42px;
+  margin-bottom:10px
+}
+.hero p{
+  max-width:720px;
+  margin:auto;
+  font-size:18px;
+  opacity:.95
+}
+
+/* SECTION */
+section{padding:70px 0}
+section h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:18px
+}
+.section-text{
+  max-width:800px;
+  margin:0 auto 26px;
+  text-align:center;
+  line-height:1.7
+}
+
+/* CONTACT ACTIONS */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:50px
+}
+.action-btn{
+  padding:14px 28px;
+  border-radius:30px;
+  font-weight:700;
+  text-decoration:none;
+  color:#fff;
+  display:inline-block
+}
+.whatsapp{background:#25D366}
+.email{background:#444}
+
+/* FORM */
+.form-wrap{
+  max-width:600px;
+  margin:0 auto;
+  background:#f8f8f8;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08)
+}
+.form-wrap h3{
+  text-align:center;
+  margin-bottom:20px
+}
+form{
+  display:grid;
+  gap:14px
+}
+input, select, button{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px
+}
+button{
+  background:#c59d5f;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  border:none
+}
+
+/* INFO BOXES */
+.info-boxes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  max-width:1000px;
+  margin:60px auto 0
+}
+.info{
+  background:#fafafa;
+  padding:22px;
+  border-radius:18px;
+  text-align:center;
+  font-weight:600
+}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:30px 20px;
+  font-size:14px
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:32px}
+  nav{display:none}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Navigacija -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">FORTUNA</h1>
-      <nav class="nav">
-        <a href="index.html#home">Početna</a>
-        <a href="sobe.html">Sobe</a>
-        <a href="onama.html">O nama</a>
-        <a href="lokacija.html">Kako do nas</a>
-        <a href="utisci.html">Utisci gostiju</a>
-        <a href="kontakt.html">Kontakt i Rezervacije</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+  <div class="container">
+    <div class="logo">FORTUNA</div>
+    <nav>
+      <a href="index.html">Početna</a>
+      <a href="sobe.html">Sobe</a>
+      <a href="onama.html">O nama</a>
+      <a href="lokacija.html">Kako do nas</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Sekcija Kontakt -->
-  <section id="kontakt" class="kontakt">
-    <div class="overlay"></div>
-    <div class="section-content">
-      <h2>Kontakt</h2>
-      <p class="contact-text">
-        Tu smo za sva vaša pitanja, rezervacije i informacije. Obratite nam se direktno i dobićete brz i ljubazan odgovor!<br>
-        Za naše drage goste smo dostupni svaki dan u sedmici!
-      </p>
+<section class="hero">
+  <h1>Kontakt & rezervacije</h1>
+  <p>
+    Tu smo za sva vaša pitanja, informacije i rezervacije.
+    Odgovaramo brzo i ljubazno – svaki dan u sedmici.
+  </p>
+</section>
 
-      <div class="contact-buttons">
-        <a href="https://wa.me/38761561727" target="_blank" class="btn-whatsapp">WHATSAPP</a>
-        <a href="mailto:fortunagradacac@gmail.com" class="btn-email">EMAIL</a>
-      </div>
+<section>
+  <h2>Kontaktirajte nas</h2>
+  <p class="section-text">
+    Najbrži način rezervacije je direktno putem WhatsApp-a.
+    Takođe nas možete kontaktirati putem emaila za sve dodatne informacije.
+  </p>
 
-      <!-- Rezervacija -->
-      <h2 style="margin-top:50px;">Rezervacije</h2>
-      <form id="rezervacija-form">
-        <input type="text" name="ime" placeholder="Ime i Prezime" required>
-        <input type="number" name="gosti" placeholder="Broj gostiju" min="1" required>
-        <input type="number" name="nocenja" placeholder="Broj noćenja" min="1" required>
-        <select name="soba" required>
-          <option value="">Odaberite sobu</option>
-          <option value="Guest soba sa 1 krevetom">Guest soba sa 1 krevetom</option>
-          <option value="Soba sa double bračnim krevetom">Soba sa double bračnim krevetom</option>
-          <option value="Luxury soba">Luxury soba</option>
-          <option value="President apartment">President apartment</option>
-        </select>
-        <button type="button" id="posalji">Pošalji upit</button>
-      </form>
-    </div>
-  </section>
+  <div class="actions">
+    <a href="https://wa.me/38761561727" target="_blank" class="action-btn whatsapp">
+      WhatsApp
+    </a>
+    <a href="mailto:fortunagradacac@gmail.com" class="action-btn email">
+      Email
+    </a>
+  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    © 2025 Hotel FORTUNA - Sva prava zadržana
-  </footer>
+  <div class="form-wrap">
+    <h3>Pošaljite upit za rezervaciju</h3>
 
-  <script>
-    const form = document.getElementById('rezervacija-form');
-    const btn = document.getElementById('posalji');
+    <form id="rezervacija-form">
+      <input type="text" name="ime" placeholder="Ime i prezime" required>
+      <input type="number" name="gosti" placeholder="Broj gostiju" min="1" required>
+      <input type="number" name="nocenja" placeholder="Broj noćenja" min="1" required>
 
-    btn.addEventListener('click', () => {
-      const ime = form.ime.value;
-      const gosti = form.gosti.value;
-      const nocenja = form.nocenja.value;
-      const soba = form.soba.value;
+      <select name="soba" required>
+        <option value="">Odaberite sobu</option>
+        <option value="Guest soba sa 1 krevetom">Guest soba sa 1 krevetom</option>
+        <option value="Soba sa double bračnim krevetom">Soba sa double bračnim krevetom</option>
+        <option value="Luxury soba">Luxury soba</option>
+        <option value="President apartment">President apartment</option>
+      </select>
 
-      if(!ime || !gosti || !nocenja || !soba){
-        alert("Molimo popunite sva polja!");
-        return;
-      }
+      <button type="button" id="posalji">Pošalji upit</button>
+    </form>
+  </div>
+</section>
 
-      const poruka = `Rezervacija:\nIme i Prezime: ${ime}\nBroj gostiju: ${gosti}\nBroj noćenja: ${nocenja}\nOdabrana soba: ${soba}`;
-      const whatsappLink = `https://wa.me/38761561727?text=${encodeURIComponent(poruka)}`;
+<section>
+  <div class="info-boxes">
+    <div class="info">📍 Gradačac – mirna lokacija</div>
+    <div class="info">📞 Brz odgovor svaki dan</div>
+    <div class="info">🛏️ Moderne i čiste sobe</div>
+    <div class="info">🚗 Besplatan parking</div>
+  </div>
+</section>
 
-      window.open(whatsappLink, '_blank');
-    });
-  </script>
+<footer class="footer">
+  © 2026 Hotel Fortuna – Sva prava zadržana
+</footer>
+
+<script>
+const form = document.getElementById('rezervacija-form');
+const btn = document.getElementById('posalji');
+
+btn.addEventListener('click', () => {
+  const ime = form.ime.value;
+  const gosti = form.gosti.value;
+  const nocenja = form.nocenja.value;
+  const soba = form.soba.value;
+
+  if(!ime || !gosti || !nocenja || !soba){
+    alert("Molimo popunite sva polja!");
+    return;
+  }
+
+  const poruka =
+    `Rezervacija Hotela Fortuna:\n` +
+    `Ime i prezime: ${ime}\n` +
+    `Broj gostiju: ${gosti}\n` +
+    `Broj noćenja: ${nocenja}\n` +
+    `Odabrana soba: ${soba}`;
+
+  const whatsappLink =
+    `https://wa.me/38761561727?text=${encodeURIComponent(poruka)}`;
+
+  window.open(whatsappLink, '_blank');
+});
+</script>
 
 </body>
 </html>
