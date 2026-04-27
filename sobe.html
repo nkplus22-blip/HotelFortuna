@@ -4,232 +4,260 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sobe – Hotel Fortuna | Udoban smještaj</title>
-<meta name="description" content="Sobe hotela Fortuna u Gradačcu – moderne, čiste i udobne. Pogledajte galeriju i rezervišite putem WhatsAppa.">
+<title>Sobe – Hotel Fortuna | Premium smještaj</title>
+<meta name="description" content="Luksuzne sobe hotela Fortuna – moderan dizajn, savršena čistoća i vrhunska udobnost.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Poppins,system-ui,Arial;
-  background:#fff;
-  color:#222;
+  font-family:Poppins;
+  background:#0a0a0a;
+  color:#fff;
 }
-.container{max-width:1200px;margin:auto;padding:0 20px}
 
-/* HEADER */
-.header{
-  position:sticky;
-  top:0;
-  background:#fff;
-  border-bottom:1px solid #eee;
-  z-index:100
+/* NAV */
+.nav{
+  position:fixed;width:100%;
+  display:flex;justify-content:space-between;
+  padding:20px 40px;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.4);
+  z-index:1000;
 }
-.header .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:70px
+.logo{height:50px}
+.hamburger{font-size:28px;cursor:pointer}
+
+/* MENU */
+.overlay{
+  position:fixed;inset:0;
+  background:#000;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  transform:translateY(-100%);
+  transition:.6s;
+  z-index:2000;
 }
-.logo{
-  font-size:26px;
-  font-weight:700;
-  letter-spacing:3px
+.overlay.active{transform:translateY(0)}
+.overlay a{
+  font-size:32px;
+  color:#fff;text-decoration:none;
+  margin:10px;
 }
-nav a{
-  margin-left:18px;
-  text-decoration:none;
-  color:#222;
-  font-weight:500
-}
+.close{position:absolute;top:30px;right:40px;font-size:42px}
 
 /* HERO */
 .hero{
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url("fortuna1.jpg") center/cover;
-  color:#fff;
+  height:60vh;
+  background:url('fortuna1.jpg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;
   text-align:center;
-  padding:100px 20px
+  position:relative;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));
 }
 .hero h1{
-  font-size:42px;
-  margin-bottom:10px
-}
-.hero p{
-  max-width:700px;
-  margin:auto;
-  font-size:18px;
-  opacity:.95
-}
-
-/* SECTION */
-section{padding:70px 0}
-section h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:18px
-}
-.section-text{
-  max-width:800px;
-  margin:0 auto 18px;
-  text-align:center;
-  font-size:16px;
-  line-height:1.7
-}
-
-/* FEATURES */
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;
-  max-width:1000px;
-  margin:40px auto 0
-}
-.feature{
-  background:#f8f8f8;
-  padding:18px;
-  border-radius:16px;
-  text-align:center;
-  font-weight:600
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  margin-top:40px
-}
-.btn{
-  display:inline-block;
-  padding:14px 30px;
-  border-radius:30px;
-  background:#c59d5f;
-  color:#fff;
-  font-weight:700;
-  text-decoration:none
+  font-family:'Playfair Display';
+  font-size:54px;
+  position:relative;
+  z-index:1;
 }
 
 /* GALLERY */
-.gallery-title{
-  text-align:center;
-  font-size:26px;
-  margin-bottom:30px
-}
+.section{padding:100px 40px;text-align:center}
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:14px
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
-.gallery img{
+
+.card{
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:.4s;
+  cursor:pointer;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#d4af37;
+}
+.card img{
   width:100%;
-  height:220px;
+  height:280px;
   object-fit:cover;
-  border-radius:14px;
-  box-shadow:0 8px 20px rgba(0,0,0,.15);
-  transition:.3s
+  transition:.5s;
 }
-.gallery img:hover{
-  transform:scale(1.04)
+.card:hover img{transform:scale(1.1)}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  backdrop-filter:blur(10px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:3000;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:15px;
+  transition:.5s;
+}
+
+/* CONTROLS */
+.nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:40px;
+  cursor:pointer;
+  padding:10px;
+}
+.prev{left:20px}
+.next{right:20px}
+
+.close-btn{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:40px;
+  cursor:pointer;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;right:20px;
+  background:#25D366;
+  padding:15px 20px;
+  border-radius:50px;
+  color:#fff;text-decoration:none;
 }
 
 /* FOOTER */
 .footer{
-  background:#111;
-  color:#aaa;
+  background:#000;
   text-align:center;
-  padding:30px 20px;
-  font-size:14px
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h1{font-size:32px}
-  nav{display:none}
+  padding:40px;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="container">
-    <div class="logo">FORTUNA</div>
-    <nav>
-      <a href="index.html">Početna</a>
-      <a href="sobe.html">Sobe</a>
-      <a href="onama.html">O nama</a>
-      <a href="lokacija.html">Kako do nas</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-  </div>
-</header>
+<!-- NAV -->
+<div class="nav">
+  <img src="logofortuna22.PNG" class="logo">
+  <div class="hamburger" onclick="openMenu()">☰</div>
+</div>
 
+<!-- MENU -->
+<div class="overlay" id="menu">
+  <div class="close" onclick="closeMenu()">×</div>
+  <a href="index.html">Početna</a>
+  <a href="sobe.html">Sobe</a>
+  <a href="onama.html">O nama</a>
+  <a href="lokacija.html">Kako do nas</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
   <h1>Naše sobe</h1>
-  <p>
-    Uživajte u udobnosti modernih soba hotela Fortuna – idealnih za odmor,
-    poslovni boravak i porodična putovanja.
-  </p>
 </section>
 
-<section>
-  <h2>Udobnost na prvom mjestu</h2>
-
-  <p class="section-text">
-    Hotel Fortuna u Gradačcu nudi porodične i luksuzne sobe sa privatnim kupatilima,
-    klima-uređajem i besplatnim Wi-Fi internetom. Svaka soba posjeduje TV, radni sto
-    i prostor za opuštanje.
-  </p>
-
-  <p class="section-text">
-    Naši gosti posebno ističu čistoću, mirnu lokaciju i kvalitet sna.  
-    Za dostupnost i rezervacije – kontaktirajte nas direktno putem WhatsApp-a.
-  </p>
-
-  <div class="features">
-    <div class="feature">🛏️ Udobni kreveti</div>
-    <div class="feature">🚿 Privatno kupatilo</div>
-    <div class="feature">❄️ Klima-uređaj</div>
-    <div class="feature">📶 Besplatan Wi-Fi</div>
-    <div class="feature">📺 TV u svakoj sobi</div>
-    <div class="feature">🧼 Visok nivo čistoće</div>
-  </div>
-
-  <div class="cta">
-    <a class="btn" href="https://wa.me/38761561727" target="_blank">
-      Kontaktiraj nas na WhatsApp
-    </a>
-  </div>
+<!-- GALLERY -->
+<section class="section">
+  <div class="gallery" id="gallery"></div>
 </section>
 
-<section>
-  <h3 class="gallery-title">Kako izgledaju naše sobe?</h3>
-
-  <div class="gallery">
-    <img src="soba1.jpg" alt="">
-    <img src="soba2.jpg" alt="">
-    <img src="soba3.jpg" alt="">
-    <img src="soba4.jpg" alt="">
-    <img src="soba5.jpg" alt="">
-    <img src="soba6.jpg" alt="">
-    <img src="soba7.jpg" alt="">
-    <img src="soba8.jpg" alt="">
-    <img src="soba9.jpg" alt="">
-    <img src="soba10.jpg" alt="">
-    <img src="soba11.jpg" alt="">
-    <img src="soba12.jpg" alt="">
-    <img src="soba13.jpg" alt="">
-    <img src="soba14.jpg" alt="">
-    <img src="soba15.jpg" alt="">
-    <img src="soba16.jpg" alt="">
-  </div>
-</section>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeImg()">×</span>
+  <span class="nav-btn prev" onclick="prevImg()">❮</span>
+  <img id="lightbox-img">
+  <span class="nav-btn next" onclick="nextImg()">❯</span>
+</div>
 
 <footer class="footer">
-  © 2026 Hotel Fortuna – Sva prava zadržana
+  <p>Hotel Fortuna – Gradačac</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/38761561727">WhatsApp</a>
+
+<script>
+const images = [
+"soba1.jpg","soba2.jpg","soba3.jpg","soba4.jpg","soba5.jpg","soba6.jpg","soba7.jpg","soba8.jpg",
+"soba9.jpg","soba10.jpg","soba11.jpg","soba12.jpg","soba13.jpg","soba14.jpg","soba15.jpg","soba16.jpg"
+];
+
+let current = 0;
+const gallery = document.getElementById("gallery");
+
+images.forEach((src,i)=>{
+  const div=document.createElement("div");
+  div.className="card";
+  div.innerHTML=`<img src="${src}">`;
+  div.onclick=()=>openImg(i);
+  gallery.appendChild(div);
+});
+
+function openMenu(){menu.classList.add("active")}
+function closeMenu(){menu.classList.remove("active")}
+
+function openImg(i){
+  current=i;
+  lightbox.style.display="flex";
+  updateImg();
+  startAuto();
+}
+
+function closeImg(){
+  lightbox.style.display="none";
+  stopAuto();
+}
+
+function updateImg(){
+  document.getElementById("lightbox-img").src=images[current];
+}
+
+function nextImg(){
+  current=(current+1)%images.length;
+  updateImg();
+}
+function prevImg(){
+  current=(current-1+images.length)%images.length;
+  updateImg();
+}
+
+/* AUTO SLIDE */
+let auto;
+function startAuto(){
+  auto=setInterval(nextImg,3000);
+}
+function stopAuto(){
+  clearInterval(auto);
+}
+
+/* SWIPE */
+let startX=0;
+lightbox.addEventListener("touchstart",e=>startX=e.touches[0].clientX);
+lightbox.addEventListener("touchend",e=>{
+  let endX=e.changedTouches[0].clientX;
+  if(startX-endX>50) nextImg();
+  if(endX-startX>50) prevImg();
+});
+</script>
 
 </body>
 </html>
