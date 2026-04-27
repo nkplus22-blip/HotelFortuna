@@ -1,64 +1,254 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kako do nas - Hotel Fortuna</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kako do nas – Hotel Fortuna | Lokacija i kontakt</title>
+<meta name="description" content="Hotel Fortuna – lako dostupna lokacija u mirnom dijelu Gradačca. Pogledajte mapu i rezervišite svoj boravak.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:#0a0a0a;
+  color:#fff;
+}
+
+/* NAV */
+.nav{
+  position:fixed;width:100%;
+  display:flex;justify-content:space-between;
+  padding:20px 40px;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.4);
+  z-index:1000;
+}
+.logo{height:50px}
+.hamburger{font-size:28px;cursor:pointer}
+
+/* MENU */
+.overlay-menu{
+  position:fixed;inset:0;
+  background:#000;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  transform:translateY(-100%);
+  transition:.6s;
+  z-index:2000;
+}
+.overlay-menu.active{transform:translateY(0)}
+.overlay-menu a{
+  font-size:32px;
+  color:#fff;text-decoration:none;
+  margin:12px 0;
+}
+.overlay-menu a:hover{color:#d4af37}
+.close{
+  position:absolute;top:30px;right:40px;
+  font-size:42px;cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:60vh;
+  background:url('fortuna1.jpg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  position:relative;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));
+}
+.hero h1{
+  font-family:'Playfair Display';
+  font-size:54px;
+  position:relative;
+  z-index:1;
+}
+
+/* SECTION */
+.section{
+  padding:100px 40px;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.section h2{
+  font-family:'Playfair Display';
+  font-size:38px;
+  margin-bottom:20px;
+}
+
+.section p{
+  line-height:1.8;
+  margin-bottom:20px;
+  opacity:.9;
+}
+
+/* MAP */
+.map{
+  margin-top:40px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+.map iframe{
+  width:100%;
+  height:450px;
+  border:0;
+}
+
+/* INFO BOXES */
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.info{
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  transition:.3s;
+}
+.info:hover{
+  transform:translateY(-5px);
+  border:1px solid #d4af37;
+}
+
+/* BUTTONS */
+.buttons{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.whatsapp-btn{
+  background:#25D366;
+  color:#fff;
+}
+
+.email-btn{
+  background:#d4af37;
+  color:#000;
+}
+
+/* FOOTER */
+.footer{
+  background:#000;
+  text-align:center;
+  padding:40px;
+  color:#aaa;
+}
+
+/* FLOAT WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;right:20px;
+  background:#25D366;
+  padding:15px 20px;
+  border-radius:50px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Navigacija -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">FORTUNA</h1>
-      <nav class="nav">
-        <a href="index.html#home">Početna</a>
-        <a href="sobe.html">Sobe</a>
-        <a href="onama.html">O nama</a>
-        <a href="lokacija.html">Kako do nas</a>
-        <a href="utisci.html">Utisci gostiju</a>
-        <a href="kontakt.html">Kontakt i Rezervacije</a>
-      </nav>
-    </div>
-  </header>
+<!-- NAV -->
+<div class="nav">
+  <img src="logofortuna22.PNG" class="logo">
+  <div class="hamburger" onclick="openMenu()">☰</div>
+</div>
 
-  <!-- Sekcija Kako do nas -->
-  <section id="lokacija" class="lokacija">
-    <div class="overlay"></div>
-    <div class="section-content">
-      <h2>Kako do nas</h2>
-      <p class="location-text">
-        Hotel <strong>Fortuna</strong> se nalazi u mirnom okruženju, idealnom za odmor i porodične trenutke.<br>
-        Tačna lokacija: <strong>Gornji Lukavac 484 (Humke), Gradačac, Bosnia and Herzegovina, 76250</strong>.<br>
-        Lako dostupno automobilom i javnim prijevozom, samo 3 km od centra Gradačca.
-      </p>
+<!-- MENU -->
+<div class="overlay-menu" id="menu">
+  <div class="close" onclick="closeMenu()">×</div>
+  <a href="index.html">Početna</a>
+  <a href="sobe.html">Sobe</a>
+  <a href="onama.html">O nama</a>
+  <a href="lokacija.html">Kako do nas</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
 
-      <!-- Google satelitska mapa tačna lokacija -->
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.51418772186!2d18.474788915168514!3d44.88575677909868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c23af28a84783%3A0x698e945b2796f8e0!2sHotel%20Fortuna!5e0!3m2!1sen!2sba!4v1700000000000&layer=c" 
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <h1>Kako do nas</h1>
+</section>
 
-      <!-- Dugmad WhatsApp i Email -->
-      <div class="contact-buttons">
-        <a href="https://wa.me/38761561727" target="_blank" class="btn-whatsapp">WHATSAPP</a>
-        <a href="mailto:fortunagradacac@gmail.com" class="btn-email">EMAIL</a>
-      </div>
-    </div>
-  </section>
+<!-- CONTENT -->
+<section class="section">
 
-  <!-- Footer -->
-  <footer class="footer">
-    © 2025 Hotel FORTUNA - Sva prava zadržana
-  </footer>
+  <h2>Lako dostupna lokacija</h2>
+
+  <p>
+  Hotel Fortuna se nalazi u mirnom dijelu Gradačca, daleko od gradske buke,
+  ali dovoljno blizu da vam sve važne lokacije budu na dohvat ruke.
+  </p>
+
+  <p>
+  Bez komplikacija, bez stresa – jednostavan dolazak i sigurno okruženje
+  čine naš hotel idealnim izborom za odmor i poslovni boravak.
+  </p>
+
+  <!-- INFO -->
+  <div class="info-grid">
+    <div class="info">📍 Gornji Lukavac 484</div>
+    <div class="info">🚗 3 km od centra</div>
+    <div class="info">🅿️ Osiguran parking</div>
+    <div class="info">🕒 Brz i jednostavan dolazak</div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.51418772186!2d18.474788915168514!3d44.88575677909868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c23af28a84783%3A0x698e945b2796f8e0!2sHotel%20Fortuna!5e0!3m2!1sen!2sba!4v1700000000000&layer=c"
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- CTA -->
+  <div class="buttons">
+    <a href="https://wa.me/38761561727" class="btn whatsapp-btn">WhatsApp rezervacija</a>
+    <a href="mailto:fortunagradacac@gmail.com" class="btn email-btn">Pošalji email</a>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <p>Hotel Fortuna – Gradačac</p>
+  <p>© 2026</p>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/38761561727">WhatsApp</a>
+
+<script>
+function openMenu(){
+  document.getElementById("menu").classList.add("active");
+}
+function closeMenu(){
+  document.getElementById("menu").classList.remove("active");
+}
+</script>
 
 </body>
 </html>
