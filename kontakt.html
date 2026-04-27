@@ -4,264 +4,242 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kontakt i rezervacije – Hotel Fortuna</title>
-<meta name="description" content="Kontakt i rezervacije hotela Fortuna u Gradačcu. Brza rezervacija putem WhatsAppa ili emaila.">
+<title>Kontakt – Hotel Fortuna | Rezervacija i informacije</title>
+<meta name="description" content="Kontaktirajte Hotel Fortuna i rezervišite smještaj brzo putem WhatsAppa.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Poppins,system-ui,Arial;
-  background:#fff;
-  color:#222;
-}
-.container{max-width:1200px;margin:auto;padding:0 20px}
+*{margin:0;padding:0;box-sizing:border-box}
 
-/* HEADER */
-.header{
-  position:sticky;
-  top:0;
-  background:#fff;
-  border-bottom:1px solid #eee;
-  z-index:100
+body{
+  font-family:Poppins,sans-serif;
+  background:#0a0a0a;
+  color:#fff;
 }
-.header .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:70px
+
+/* NAV */
+.nav{
+  position:fixed;width:100%;
+  display:flex;justify-content:space-between;
+  padding:20px 40px;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.4);
+  z-index:1000;
 }
-.logo{
-  font-size:26px;
-  font-weight:700;
-  letter-spacing:3px
+.logo{height:50px}
+.hamburger{font-size:28px;cursor:pointer}
+
+/* MENU */
+.overlay-menu{
+  position:fixed;inset:0;
+  background:#000;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  transform:translateY(-100%);
+  transition:.6s;
+  z-index:2000;
 }
-nav a{
-  margin-left:18px;
-  text-decoration:none;
-  color:#222;
-  font-weight:500
+.overlay-menu.active{transform:translateY(0)}
+.overlay-menu a{
+  font-size:32px;
+  color:#fff;text-decoration:none;
+  margin:12px 0;
+}
+.overlay-menu a:hover{color:#d4af37}
+.close{
+  position:absolute;top:30px;right:40px;
+  font-size:42px;cursor:pointer;
 }
 
 /* HERO */
 .hero{
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url("fortuna1.jpg") center/cover;
-  color:#fff;
-  text-align:center;
-  padding:90px 20px
+  height:60vh;
+  background:url('fortuna1.jpg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));
 }
 .hero h1{
-  font-size:42px;
-  margin-bottom:10px
-}
-.hero p{
-  max-width:720px;
-  margin:auto;
-  font-size:18px;
-  opacity:.95
+  font-family:'Playfair Display';
+  font-size:54px;
+  position:relative;
 }
 
 /* SECTION */
-section{padding:70px 0}
-section h2{
+.section{
+  padding:100px 40px;
+  max-width:1100px;
+  margin:auto;
   text-align:center;
-  font-size:32px;
-  margin-bottom:18px
-}
-.section-text{
-  max-width:800px;
-  margin:0 auto 26px;
-  text-align:center;
-  line-height:1.7
 }
 
-/* CONTACT ACTIONS */
-.actions{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-bottom:50px
+/* CONTACT GRID */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:40px;
 }
-.action-btn{
-  padding:14px 28px;
-  border-radius:30px;
-  font-weight:700;
-  text-decoration:none;
-  color:#fff;
-  display:inline-block
-}
-.whatsapp{background:#25D366}
-.email{background:#444}
 
-/* FORM */
-.form-wrap{
-  max-width:600px;
-  margin:0 auto;
-  background:#f8f8f8;
+/* CARD */
+.card{
+  background:#111;
   padding:30px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08)
+  transition:.3s;
 }
-.form-wrap h3{
-  text-align:center;
-  margin-bottom:20px
-}
-form{
-  display:grid;
-  gap:14px
-}
-input, select, button{
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:15px
-}
-button{
-  background:#c59d5f;
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
-  border:none
+.card:hover{
+  transform:translateY(-8px);
+  border:1px solid #d4af37;
 }
 
-/* INFO BOXES */
-.info-boxes{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  max-width:1000px;
-  margin:60px auto 0
+/* FORM */
+form input, form textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
 }
-.info{
-  background:#fafafa;
-  padding:22px;
-  border-radius:18px;
-  text-align:center;
-  font-weight:600
+
+form button{
+  width:100%;
+  padding:14px;
+  background:#d4af37;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
 }
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:14px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.whatsapp{background:#25D366;color:#fff}
+.email{background:#d4af37;color:#000}
 
 /* FOOTER */
 .footer{
-  background:#111;
-  color:#aaa;
+  background:#000;
   text-align:center;
-  padding:30px 20px;
-  font-size:14px
+  padding:40px;
+  color:#aaa;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h1{font-size:32px}
-  nav{display:none}
+/* FLOAT */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;right:20px;
+  background:#25D366;
+  padding:15px 20px;
+  border-radius:50px;
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="container">
-    <div class="logo">FORTUNA</div>
-    <nav>
-      <a href="index.html">Početna</a>
-      <a href="sobe.html">Sobe</a>
-      <a href="onama.html">O nama</a>
-      <a href="lokacija.html">Kako do nas</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-  </div>
-</header>
+<!-- NAV -->
+<div class="nav">
+  <img src="logofortuna22.PNG" class="logo">
+  <div class="hamburger" onclick="openMenu()">☰</div>
+</div>
 
+<!-- MENU -->
+<div class="overlay-menu" id="menu">
+  <div class="close" onclick="closeMenu()">×</div>
+  <a href="index.html">Početna</a>
+  <a href="sobe.html">Sobe</a>
+  <a href="onama.html">O nama</a>
+  <a href="lokacija.html">Kako do nas</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
   <h1>Kontakt & rezervacije</h1>
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <h2>Rezervišite brzo i jednostavno</h2>
+
   <p>
-    Tu smo za sva vaša pitanja, informacije i rezervacije.
-    Odgovaramo brzo i ljubazno – svaki dan u sedmici.
-  </p>
-</section>
-
-<section>
-  <h2>Kontaktirajte nas</h2>
-  <p class="section-text">
-    Najbrži način rezervacije je direktno putem WhatsApp-a.
-    Takođe nas možete kontaktirati putem emaila za sve dodatne informacije.
+  Kontaktirajte nas u nekoliko sekundi i osigurajte svoj boravak.
+  Najbrži način rezervacije je putem WhatsApp-a.
   </p>
 
-  <div class="actions">
-    <a href="https://wa.me/38761561727" target="_blank" class="action-btn whatsapp">
-      WhatsApp
-    </a>
-    <a href="mailto:fortunagradacac@gmail.com" class="action-btn email">
-      Email
-    </a>
+  <div class="contact-grid">
+
+    <!-- WHATSAPP -->
+    <div class="card">
+      <h3>WhatsApp</h3>
+      <p>Najbrža rezervacija – odgovor u kratkom roku.</p>
+      <a href="https://wa.me/38761561727" class="btn whatsapp">Pošalji poruku</a>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="card">
+      <h3>Email</h3>
+      <p>Pošaljite upit i odgovorit ćemo vam u najkraćem roku.</p>
+      <a href="mailto:fortunagradacac@gmail.com" class="btn email">Pošalji email</a>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+      <h3>Brzi upit</h3>
+
+      <form onsubmit="sendMsg(); return false;">
+        <input type="text" id="ime" placeholder="Vaše ime" required>
+        <input type="date" id="d">
+        <input type="date" id="o">
+        <input type="number" id="osobe" placeholder="Broj osoba">
+        <textarea id="msg" placeholder="Poruka"></textarea>
+        <button type="submit">Pošalji</button>
+      </form>
+
+    </div>
+
   </div>
 
-  <div class="form-wrap">
-    <h3>Pošaljite upit za rezervaciju</h3>
-
-    <form id="rezervacija-form">
-      <input type="text" name="ime" placeholder="Ime i prezime" required>
-      <input type="number" name="gosti" placeholder="Broj gostiju" min="1" required>
-      <input type="number" name="nocenja" placeholder="Broj noćenja" min="1" required>
-
-      <select name="soba" required>
-        <option value="">Odaberite sobu</option>
-        <option value="Guest soba sa 1 krevetom">Guest soba sa 1 krevetom</option>
-        <option value="Soba sa double bračnim krevetom">Soba sa double bračnim krevetom</option>
-        <option value="Luxury soba">Luxury soba</option>
-        <option value="President apartment">President apartment</option>
-      </select>
-
-      <button type="button" id="posalji">Pošalji upit</button>
-    </form>
-  </div>
-</section>
-
-<section>
-  <div class="info-boxes">
-    <div class="info">📍 Gradačac – mirna lokacija</div>
-    <div class="info">📞 Brz odgovor svaki dan</div>
-    <div class="info">🛏️ Moderne i čiste sobe</div>
-    <div class="info">🚗 Besplatan parking</div>
-  </div>
 </section>
 
 <footer class="footer">
-  © 2026 Hotel Fortuna – Sva prava zadržana
+  <p>Hotel Fortuna – Gradačac</p>
 </footer>
 
+<a class="whatsapp-float" href="https://wa.me/38761561727">WhatsApp</a>
+
 <script>
-const form = document.getElementById('rezervacija-form');
-const btn = document.getElementById('posalji');
+function openMenu(){
+  document.getElementById("menu").classList.add("active");
+}
+function closeMenu(){
+  document.getElementById("menu").classList.remove("active");
+}
 
-btn.addEventListener('click', () => {
-  const ime = form.ime.value;
-  const gosti = form.gosti.value;
-  const nocenja = form.nocenja.value;
-  const soba = form.soba.value;
+function sendMsg(){
+  let ime=document.getElementById("ime").value;
+  let d=document.getElementById("d").value;
+  let o=document.getElementById("o").value;
+  let osobe=document.getElementById("osobe").value;
+  let msg=document.getElementById("msg").value;
 
-  if(!ime || !gosti || !nocenja || !soba){
-    alert("Molimo popunite sva polja!");
-    return;
-  }
-
-  const poruka =
-    `Rezervacija Hotela Fortuna:\n` +
-    `Ime i prezime: ${ime}\n` +
-    `Broj gostiju: ${gosti}\n` +
-    `Broj noćenja: ${nocenja}\n` +
-    `Odabrana soba: ${soba}`;
-
-  const whatsappLink =
-    `https://wa.me/38761561727?text=${encodeURIComponent(poruka)}`;
-
-  window.open(whatsappLink, '_blank');
-});
+  let text=`Upit:%0A${ime}%0ADolazak:${d}%0AOdlazak:${o}%0AOsobe:${osobe}%0A${msg}`;
+  window.open(`https://wa.me/38761561727?text=${text}`);
+}
 </script>
 
 </body>
