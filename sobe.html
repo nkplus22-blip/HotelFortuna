@@ -1,263 +1,462 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobe & Apartmani | Hotel Fortuna</title>
+    <meta name="description" content="Luksuzne sobe hotela Fortuna – moderan dizajn, savršena čistoća i vrhunska udobnost.">
 
-<title>Sobe – Hotel Fortuna | Premium smještaj</title>
-<meta name="description" content="Luksuzne sobe hotela Fortuna – moderan dizajn, savršena čistoća i vrhunska udobnost.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Varijable (Konzistentno sa index.html) */
+        :root {
+            --bg-main: #0a0a0a;
+            --bg-card: #151515;
+            --gold: #d4af37;
+            --gold-hover: #b5952f;
+            --text-light: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Poppins;
-  background:#0a0a0a;
-  color:#fff;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-/* NAV */
-.nav{
-  position:fixed;width:100%;
-  display:flex;justify-content:space-between;
-  padding:20px 40px;
-  backdrop-filter:blur(12px);
-  background:rgba(0,0,0,0.4);
-  z-index:1000;
-}
-.logo{height:50px}
-.hamburger{font-size:28px;cursor:pointer}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
 
-/* MENU */
-.overlay{
-  position:fixed;inset:0;
-  background:#000;
-  display:flex;flex-direction:column;
-  justify-content:center;align-items:center;
-  transform:translateY(-100%);
-  transition:.6s;
-  z-index:2000;
-}
-.overlay.active{transform:translateY(0)}
-.overlay a{
-  font-size:32px;
-  color:#fff;text-decoration:none;
-  margin:10px;
-}
-.close{position:absolute;top:30px;right:40px;font-size:42px}
+        /* --- NAVIGACIJA --- */
+        .nav {
+            position: fixed; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%;
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            background: rgba(10, 10, 10, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000; transition: var(--transition);
+        }
+        .logo { height: 45px; transition: var(--transition); }
+        .logo:hover { transform: scale(1.05); }
+        .hamburger { font-size: 32px; cursor: pointer; color: var(--gold); transition: var(--transition); }
+        .hamburger:hover { color: #fff; }
 
-/* HERO */
-.hero{
-  height:60vh;
-  background:url('fortuna1.jpg') center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
-  position:relative;
-}
-.hero::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.9));
-}
-.hero h1{
-  font-family:'Playfair Display';
-  font-size:54px;
-  position:relative;
-  z-index:1;
-}
+        /* --- MENI OVERLAY --- */
+        .overlay {
+            position: fixed; inset: 0;
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transform: translateY(-100%); transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 2000;
+        }
+        .overlay.active { transform: translateY(0); }
+        .overlay a {
+            font-family: 'Playfair Display', serif; font-size: 2.5rem;
+            color: var(--text-light); text-decoration: none; margin: 15px 0;
+            position: relative; transition: var(--transition);
+        }
+        .overlay a::after {
+            content: ''; position: absolute; left: 0; bottom: -5px;
+            width: 0%; height: 2px; background: var(--gold); transition: var(--transition);
+        }
+        .overlay a:hover { color: var(--gold); }
+        .overlay a:hover::after { width: 100%; }
+        .close {
+            position: absolute; top: 30px; right: 5%;
+            font-size: 50px; cursor: pointer; color: var(--gold); transition: var(--transition);
+        }
+        .close:hover { transform: rotate(90deg); color: #fff; }
 
-/* GALLERY */
-.section{padding:100px 40px;text-align:center}
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
+        /* --- HERO SEKCIJA --- */
+        .hero {
+            height: 50vh;
+            background: url('fortuna1.jpg') center/cover no-repeat, url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; position: relative;
+        }
+        .hero::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg-main));
+        }
+        .hero-content {
+            position: relative; z-index: 1; animation: fadeIn 1.5s ease forwards;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif; font-size: 4rem;
+            color: var(--gold); letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+        .hero p {
+            color: var(--text-muted); font-size: 1.1rem; margin-top: 10px; font-weight: 300;
+        }
 
-.card{
-  border-radius:20px;
-  overflow:hidden;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  transition:.4s;
-  cursor:pointer;
-}
-.card:hover{
-  transform:translateY(-10px) scale(1.02);
-  border-color:#d4af37;
-}
-.card img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  transition:.5s;
-}
-.card:hover img{transform:scale(1.1)}
+        /* --- FILTERI --- */
+        .filters {
+            display: flex; justify-content: center; flex-wrap: wrap;
+            gap: 15px; margin: 40px auto; padding: 0 20px;
+        }
+        .filter-btn {
+            background: transparent; color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 25px; border-radius: 30px;
+            font-family: 'Poppins', sans-serif; font-size: 0.9rem;
+            cursor: pointer; transition: var(--transition);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold); color: #000; border-color: var(--gold); font-weight: 500;
+        }
 
-/* LIGHTBOX */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.95);
-  backdrop-filter:blur(10px);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:3000;
-}
+        /* --- GALERIJA (GRID) --- */
+        .section { padding: 40px 5% 100px; text-align: center; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px; max-width: 1400px; margin: 0 auto;
+        }
+        
+        .card {
+            position: relative; border-radius: 12px; overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer; transition: var(--transition);
+            animation: zoomIn 0.6s ease forwards;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--border-gold); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        .card img {
+            width: 100%; height: 300px; object-fit: cover; transition: transform 0.6s ease;
+        }
+        .card:hover img { transform: scale(1.08); }
+        
+        .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 20px; opacity: 0; transition: var(--transition);
+        }
+        .card:hover .card-overlay { opacity: 1; }
+        .card-overlay h3 {
+            font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 5px;
+        }
+        .card-overlay p { font-size: 0.9rem; color: #ddd; }
+        
+        /* Ikonica zuma */
+        .zoom-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0);
+            background: rgba(212, 175, 55, 0.8); color: #000;
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-size: 1.5rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover .zoom-icon { transform: translate(-50%, -50%) scale(1); }
 
-.lightbox img{
-  max-width:90%;
-  max-height:80%;
-  border-radius:15px;
-  transition:.5s;
-}
+        /* --- PREMIUM LIGHTBOX --- */
+        .lightbox {
+            position: fixed; inset: 0;
+            background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(15px);
+            display: none; justify-content: center; align-items: center;
+            z-index: 3000; flex-direction: column;
+        }
+        
+        /* Gornja traka u lightboxu */
+        .lightbox-header {
+            position: absolute; top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px; z-index: 3001;
+        }
+        .lightbox-counter { color: var(--gold); font-family: 'Poppins', sans-serif; font-size: 1.2rem; letter-spacing: 2px;}
+        .close-btn { font-size: 45px; cursor: pointer; color: #fff; transition: var(--transition); line-height: 1; }
+        .close-btn:hover { color: var(--gold); transform: rotate(90deg); }
 
-/* CONTROLS */
-.nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:40px;
-  cursor:pointer;
-  padding:10px;
-}
-.prev{left:20px}
-.next{right:20px}
+        .lightbox-content-wrapper {
+            position: relative; max-width: 90%; max-height: 80vh;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .lightbox img {
+            max-width: 100%; max-height: 80vh; border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 0.4s ease;
+        }
+        .lightbox-title {
+            position: absolute; bottom: -50px; color: var(--gold);
+            font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 1px;
+        }
 
-.close-btn{
-  position:absolute;
-  top:30px;
-  right:40px;
-  font-size:40px;
-  cursor:pointer;
-}
+        /* Kontrole */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.05); color: #fff;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 25px; cursor: pointer; transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+        .prev { left: 5%; }
+        .next { right: 5%; }
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;right:20px;
-  background:#25D366;
-  padding:15px 20px;
-  border-radius:50px;
-  color:#fff;text-decoration:none;
-}
+        /* --- WHATSAPP FAB --- */
+        .whatsapp-fab {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25D366; width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; color: #fff;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000; transition: var(--transition);
+        }
+        .whatsapp-fab:hover { transform: scale(1.1) rotate(-10deg); }
+        .whatsapp-fab svg { width: 35px; height: 35px; fill: currentColor; }
 
-/* FOOTER */
-.footer{
-  background:#000;
-  text-align:center;
-  padding:40px;
-  color:#aaa;
-}
-</style>
+        /* --- FOOTER --- */
+        .footer {
+            background: #050505; text-align: center; padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted);
+        }
+        
+        /* Animacije */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .nav-btn { width: 45px; height: 45px; font-size: 20px; }
+            .prev { left: 10px; } .next { right: 10px; }
+            .lightbox-header { padding: 15px 20px; }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <img src="logofortuna22.PNG" class="logo">
-  <div class="hamburger" onclick="openMenu()">☰</div>
-</div>
+    <!-- NAVIGACIJA -->
+    <nav class="nav" id="navbar">
+        <a href="index.html">
+            <img src="logofortuna22.PNG" class="logo" alt="Hotel Fortuna Logo" onerror="this.outerHTML='<h2 style=\'color:#d4af37; font-family:Playfair Display;\'>FORTUNA</h2>'">
+        </a>
+        <div class="hamburger" onclick="openMenu()">☰</div>
+    </nav>
 
-<!-- MENU -->
-<div class="overlay" id="menu">
-  <div class="close" onclick="closeMenu()">×</div>
-  <a href="index.html">Početna</a>
-  <a href="sobe.html">Sobe</a>
-  <a href="onama.html">O nama</a>
-  <a href="lokacija.html">Kako do nas</a>
-  <a href="kontakt.html">Kontakt</a>
-</div>
+    <!-- MENI OVERLAY -->
+    <div class="overlay" id="menu">
+        <div class="close" onclick="closeMenu()">×</div>
+        <a href="index.html">Početna</a>
+        <a href="sobe.html">Sobe & Apartmani</a>
+        <a href="onama.html">O nama</a>
+        <a href="lokacija.html">Kako do nas</a>
+        <a href="kontakt.html">Kontakt</a>
+    </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Naše sobe</h1>
-</section>
+    <!-- HERO SEKCIJA -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Naš Smještaj</h1>
+            <p>Otkrijte savršenstvo u svakom detalju.</p>
+        </div>
+    </header>
 
-<!-- GALLERY -->
-<section class="section">
-  <div class="gallery" id="gallery"></div>
-</section>
+    <!-- SEKCIJA GALERIJE -->
+    <section class="section">
+        
+        <!-- Filteri -->
+        <div class="filters" id="filters">
+            <button class="filter-btn active" onclick="filterGallery('sve')">Sve Sobe</button>
+            <button class="filter-btn" onclick="filterGallery('deluxe')">Deluxe</button>
+            <button class="filter-btn" onclick="filterGallery('executive')">Executive</button>
+            <button class="filter-btn" onclick="filterGallery('apartman')">Apartmani</button>
+        </div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close-btn" onclick="closeImg()">×</span>
-  <span class="nav-btn prev" onclick="prevImg()">❮</span>
-  <img id="lightbox-img">
-  <span class="nav-btn next" onclick="nextImg()">❯</span>
-</div>
+        <!-- Grid -->
+        <div class="gallery" id="gallery">
+            <!-- Dinamički generisano putem JS-a -->
+        </div>
+    </section>
 
-<footer class="footer">
-  <p>Hotel Fortuna – Gradačac</p>
-</footer>
+    <!-- PREMIUM LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-header">
+            <div class="lightbox-counter" id="lb-counter">1 / 16</div>
+            <div class="close-btn" onclick="closeImg()">×</div>
+        </div>
+        
+        <div class="nav-btn prev" onclick="prevImg(true)">❮</div>
+        
+        <div class="lightbox-content-wrapper">
+            <!-- Dodan onerror u slučaju da slika ne postoji -->
+            <img id="lightbox-img" src="" alt="Pregled sobe" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+            <div class="lightbox-title" id="lb-title">Naziv sobe</div>
+        </div>
+        
+        <div class="nav-btn next" onclick="nextImg(true)">❯</div>
+    </div>
 
-<a class="whatsapp" href="https://wa.me/38761561727">WhatsApp</a>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.5rem; margin-bottom: 10px;">HOTEL FORTUNA</p>
+        <p>&copy; 2026 Hotel Fortuna – Gradačac. Sva prava zadržana.</p>
+    </footer>
 
-<script>
-const images = [
-"soba1.jpg","soba2.jpg","soba3.jpg","soba4.jpg","soba5.jpg","soba6.jpg","soba7.jpg","soba8.jpg",
-"soba9.jpg","soba10.jpg","soba11.jpg","soba12.jpg","soba13.jpg","soba14.jpg","soba15.jpg","soba16.jpg"
-];
+    <!-- WHATSAPP FAB -->
+    <a class="whatsapp-fab" href="https://wa.me/38761561727" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 413.2c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 334.1l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.2-186.6 184.2zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
 
-let current = 0;
-const gallery = document.getElementById("gallery");
+    <!-- SKRIPTE -->
+    <script>
+        // Navigacija efekat pri scrollu
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 50) {
+                nav.style.background = 'rgba(5, 5, 5, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.7)';
+            }
+        });
 
-images.forEach((src,i)=>{
-  const div=document.createElement("div");
-  div.className="card";
-  div.innerHTML=`<img src="${src}">`;
-  div.onclick=()=>openImg(i);
-  gallery.appendChild(div);
-});
+        // Meni Logika
+        const menu = document.getElementById("menu");
+        function openMenu(){ menu.classList.add("active"); }
+        function closeMenu(){ menu.classList.remove("active"); }
 
-function openMenu(){menu.classList.add("active")}
-function closeMenu(){menu.classList.remove("active")}
+        // Baza Slika i Kategorija
+        // Dinamički kreiramo objekte kako bismo imali i tekst i kategoriju
+        const roomData = [];
+        for(let i=1; i<=16; i++) {
+            let category = 'deluxe';
+            let title = `Deluxe Soba 0${i}`;
+            
+            if(i > 5 && i <= 11) {
+                category = 'executive';
+                title = `Executive Soba 0${i-5}`;
+            } else if (i > 11) {
+                category = 'apartman';
+                title = `Premium Apartman 0${i-11}`;
+            }
 
-function openImg(i){
-  current=i;
-  lightbox.style.display="flex";
-  updateImg();
-  startAuto();
-}
+            roomData.push({
+                src: `soba${i}.jpg`,
+                title: title,
+                category: category,
+                desc: 'Luksuzan ambijent za savršen odmor.'
+            });
+        }
 
-function closeImg(){
-  lightbox.style.display="none";
-  stopAuto();
-}
+        const gallery = document.getElementById("gallery");
+        let currentArray = roomData; // Zadržava trenutno filtrirane slike
+        let current = 0;
 
-function updateImg(){
-  document.getElementById("lightbox-img").src=images[current];
-}
+        // Inicijalno učitavanje galerije
+        function renderGallery(filter = 'sve') {
+            gallery.innerHTML = '';
+            
+            currentArray = filter === 'sve' ? roomData : roomData.filter(room => room.category === filter);
 
-function nextImg(){
-  current=(current+1)%images.length;
-  updateImg();
-}
-function prevImg(){
-  current=(current-1+images.length)%images.length;
-  updateImg();
-}
+            currentArray.forEach((room, index) => {
+                const div = document.createElement("div");
+                div.className = "card";
+                
+                // Fallback na Unsplash ako tvoja slika nije pronađena lokalno radi boljeg prikaza tokom testiranja
+                div.innerHTML = `
+                    <img src="${room.src}" alt="${room.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    <div class="zoom-icon">🔍</div>
+                    <div class="card-overlay">
+                        <h3>${room.title}</h3>
+                        <p>${room.desc}</p>
+                    </div>
+                `;
+                div.onclick = () => openImg(index);
+                gallery.appendChild(div);
+            });
+        }
 
-/* AUTO SLIDE */
-let auto;
-function startAuto(){
-  auto=setInterval(nextImg,3000);
-}
-function stopAuto(){
-  clearInterval(auto);
-}
+        // Filter Funkcija
+        function filterGallery(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderGallery(category);
+        }
 
-/* SWIPE */
-let startX=0;
-lightbox.addEventListener("touchstart",e=>startX=e.touches[0].clientX);
-lightbox.addEventListener("touchend",e=>{
-  let endX=e.changedTouches[0].clientX;
-  if(startX-endX>50) nextImg();
-  if(endX-startX>50) prevImg();
-});
-</script>
+        // Renderuj sve na početku
+        renderGallery('sve');
+
+        // Lightbox Logika
+        const lightbox = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lightbox-img");
+        const lbTitle = document.getElementById("lb-title");
+        const lbCounter = document.getElementById("lb-counter");
+        let autoSlideInterval;
+
+        function openImg(index){
+            current = index;
+            lightbox.style.display = "flex";
+            document.body.style.overflow = 'hidden'; // Zabrani scroll
+            updateImg();
+            startAuto();
+        }
+
+        function closeImg(){
+            lightbox.style.display = "none";
+            document.body.style.overflow = 'auto'; // Vrati scroll
+            stopAuto();
+        }
+
+        function updateImg(){
+            // Blagi fade-in efekat pri promjeni
+            lbImg.style.opacity = 0;
+            setTimeout(() => {
+                lbImg.src = currentArray[current].src;
+                lbTitle.innerText = currentArray[current].title;
+                lbCounter.innerText = `${current + 1} / ${currentArray.length}`;
+                lbImg.style.opacity = 1;
+            }, 150);
+        }
+
+        // Dodan parametar 'manual' da zaustavimo auto-slide ako korisnik sam klikne
+        function nextImg(manual = false){
+            if(manual) stopAuto(); 
+            current = (current + 1) % currentArray.length;
+            updateImg();
+        }
+        function prevImg(manual = false){
+            if(manual) stopAuto();
+            current = (current - 1 + currentArray.length) % currentArray.length;
+            updateImg();
+        }
+
+        /* AUTO SLIDE */
+        function startAuto(){
+            stopAuto(); // Prevencija dupliranja
+            autoSlideInterval = setInterval(() => nextImg(false), 4000); // 4 sekunde je ugodnije
+        }
+        function stopAuto(){
+            clearInterval(autoSlideInterval);
+        }
+
+        /* SWIPE PODRŠKA (Za mobitele) */
+        let startX = 0;
+        lightbox.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+        lightbox.addEventListener("touchend", e => {
+            let endX = e.changedTouches[0].clientX;
+            if(startX - endX > 50) nextImg(true); // Prelaz ulijevo
+            if(endX - startX > 50) prevImg(true); // Prelaz udesno
+        });
+
+        /* TASTATURA PODRŠKA */
+        document.addEventListener('keydown', function(e) {
+            if(lightbox.style.display === 'flex') {
+                if(e.key === "Escape") closeImg();
+                if(e.key === "ArrowRight") nextImg(true);
+                if(e.key === "ArrowLeft") prevImg(true);
+            }
+        });
+    </script>
 
 </body>
 </html>
